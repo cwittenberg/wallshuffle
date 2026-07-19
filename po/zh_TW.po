@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wallshuffle\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Global Preferences"
+msgstr "全局偏好設定"
+
+msgid "Configure behavior, timing, and sources."
+msgstr "設定行為、時間與來源。"
+
+msgid "Randomize / Shuffle"
+msgstr "隨機 / 隨機播放"
+
+msgid "Turn off to assign static wallpapers sequentially per monitor."
+msgstr "關閉此選項以依序為每台顯示器分配靜態桌布。"
+
+msgid "Same Image on All Monitors"
+msgstr "所有顯示器使用相同圖片"
+
+msgid "Apply one background to all displays. Requires a multi-monitor setup."
+msgstr "將單一背景套用於所有顯示器。需要多顯示器設定。"
+
+msgid "Change Interval (Minutes)"
+msgstr "變更間隔（分鐘）"
+
+msgid "Frequency of background cycling."
+msgstr "背景循環頻率。"
+
+msgid "Wallpaper Source"
+msgstr "桌布來源"
+
+msgid "Where to fetch backgrounds from."
+msgstr "從何處取得背景。"
+
+msgid "Local Folder"
+msgstr "本機資料夾"
+
+msgid "Online Random (Picsum)"
+msgstr "線上隨機 (Picsum)"
+
+msgid "Online Random (LoremFlickr)"
+msgstr "線上隨機 (LoremFlickr)"
+
+msgid "Wallpaper Folder"
+msgstr "桌布資料夾"
+
+msgid "Select a directory..."
+msgstr "選擇目錄..."
+
+msgid "Select Wallpaper Source Folder"
+msgstr "選擇桌布來源資料夾"
+
+msgid "Per-Monitor Configuration"
+msgstr "每台顯示器設定"
+
+msgid "Assign individual scaling strategies and static images to connected displays."
+msgstr "為已連接的顯示器分配個別的縮放策略與靜態圖片。"
+
+msgid "Unknown Display"
+msgstr "未知顯示器"
+
+msgid "Display %d"
+msgstr "顯示器 %d"
+
+msgid "Scaling Strategy"
+msgstr "縮放策略"
+
+msgid "Specific Static Image"
+msgstr "特定靜態圖片"
+
+msgid "Default (Alphabetical from folder)"
+msgstr "預設（依資料夾中字母順序）"
+
+msgid "Select Static Image for %s"
+msgstr "為 %s 選擇靜態圖片"
+
+msgid "About"
+msgstr "關於"
+
+msgid "Extension Information"
+msgstr "擴充功能資訊"
+
+msgid "Wallshuffle"
+msgstr "Wallshuffle"
+
+msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
+msgstr "使用進階渲染策略設定單螢幕動態背景。"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "Local / Development"
+msgstr "本機 / 開發"
+
+msgid "Author"
+msgstr "作者"
+
+msgid "Buy me a coffee 💙☕"
+msgstr "請我喝杯咖啡 💙☕"
+
+msgid "Report a Bug 🪲"
+msgstr "回報錯誤 🪲"
+
+msgid "Request a Feature"
+msgstr "請求新功能"
+
+msgid "Zoom"
+msgstr "縮放"
+
+msgid "Fit"
+msgstr "適合"
+
+msgid "Centre"
+msgstr "置中"
+
+msgid "Fill"
+msgstr "填滿"
+
+msgid "Tile"
+msgstr "拼貼"
+
+msgid "Span"
+msgstr "跨越"

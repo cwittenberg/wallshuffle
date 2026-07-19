@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wallshuffle\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Global Preferences"
+msgstr "Глобальные настройки"
+
+msgid "Configure behavior, timing, and sources."
+msgstr "Настройте поведение, тайминг и источники."
+
+msgid "Randomize / Shuffle"
+msgstr "Случайно / Перемешать"
+
+msgid "Turn off to assign static wallpapers sequentially per monitor."
+msgstr "Отключите, чтобы последовательно назначать статические обои для каждого монитора."
+
+msgid "Same Image on All Monitors"
+msgstr "Одинаковое изображение на всех мониторах"
+
+msgid "Apply one background to all displays. Requires a multi-monitor setup."
+msgstr "Применить один фон ко всем экранам. Требуется несколько мониторов."
+
+msgid "Change Interval (Minutes)"
+msgstr "Интервал смены (минуты)"
+
+msgid "Frequency of background cycling."
+msgstr "Частота смены фона."
+
+msgid "Wallpaper Source"
+msgstr "Источник обоев"
+
+msgid "Where to fetch backgrounds from."
+msgstr "Откуда брать обои."
+
+msgid "Local Folder"
+msgstr "Локальная папка"
+
+msgid "Online Random (Picsum)"
+msgstr "Случайно из сети (Picsum)"
+
+msgid "Online Random (LoremFlickr)"
+msgstr "Случайно из сети (LoremFlickr)"
+
+msgid "Wallpaper Folder"
+msgstr "Папка с обоями"
+
+msgid "Select a directory..."
+msgstr "Выберите каталог..."
+
+msgid "Select Wallpaper Source Folder"
+msgstr "Выберите папку источника обоев"
+
+msgid "Per-Monitor Configuration"
+msgstr "Конфигурация по мониторам"
+
+msgid "Assign individual scaling strategies and static images to connected displays."
+msgstr "Назначьте индивидуальные стратегии масштабирования и статические изображения."
+
+msgid "Unknown Display"
+msgstr "Неизвестный дисплей"
+
+msgid "Display %d"
+msgstr "Дисплей %d"
+
+msgid "Scaling Strategy"
+msgstr "Стратегия масштабирования"
+
+msgid "Specific Static Image"
+msgstr "Конкретное статическое изображение"
+
+msgid "Default (Alphabetical from folder)"
+msgstr "По умолчанию (по алфавиту из папки)"
+
+msgid "Select Static Image for %s"
+msgstr "Выберите статическое изображение для %s"
+
+msgid "About"
+msgstr "О программе"
+
+msgid "Extension Information"
+msgstr "Информация о расширении"
+
+msgid "Wallshuffle"
+msgstr "Wallshuffle"
+
+msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
+msgstr "Установите динамические фоны для каждого монитора."
+
+msgid "Version"
+msgstr "Версия"
+
+msgid "Local / Development"
+msgstr "Локально / Разработка"
+
+msgid "Author"
+msgstr "Автор"
+
+msgid "Buy me a coffee 💙☕"
+msgstr "Купить мне кофе 💙☕"
+
+msgid "Report a Bug 🪲"
+msgstr "Сообщить об ошибке 🪲"
+
+msgid "Request a Feature"
+msgstr "Запросить функцию"
+
+msgid "Zoom"
+msgstr "Масштаб"
+
+msgid "Fit"
+msgstr "Уместить"
+
+msgid "Centre"
+msgstr "По центру"
+
+msgid "Fill"
+msgstr "Заполнить"
+
+msgid "Tile"
+msgstr "Плитка"
+
+msgid "Span"
+msgstr "Растянуть"

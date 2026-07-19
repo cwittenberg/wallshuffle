@@ -1,10 +1,6 @@
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
 import Soup from 'gi://Soup?version=3.0';
-import { Randomizer } from './randomization.js';
-
-// Keep a singleton randomizer to maintain state between interval cycles
-const globalRandomizer = new Randomizer();
 
 class SourceStrategy {
     async getImages(requiredCount) {
@@ -13,9 +9,10 @@ class SourceStrategy {
 }
 
 class FolderSourceStrategy extends SourceStrategy {
-    constructor(settings) {
+    constructor(settings, randomizer) {
         super();
         this._settings = settings;
+        this._randomizer = randomizer;
     }
 
     async getImages(requiredCount) {
@@ -46,14 +43,13 @@ class FolderSourceStrategy extends SourceStrategy {
                     images.push(folder.get_child(info.get_name()).get_path());
                 }
             }
-            enumerator.close(null);
+            enumerator.close(null); // Prevents File IO leaks
         } catch (e) {
             console.error(`Wallshuffle: IO Error reading folder - ${e.message}`);
         }
 
         if (this._settings.get_boolean('randomize')) {
-            // Use advanced randomizer to prevent repeats and ensure uniqueness per monitor
-            return globalRandomizer.select(images, requiredCount);
+            return this._randomizer.select(images, requiredCount);
         } else {
             // Static Mode handling
             const sortedImages = images.sort((a, b) => a.localeCompare(b));
@@ -83,11 +79,13 @@ class FolderSourceStrategy extends SourceStrategy {
 }
 
 class OnlineSourceStrategy extends SourceStrategy {
-    constructor(settings, provider) {
+    constructor(settings, provider, randomizer, session, cancellable) {
         super();
         this._settings = settings;
         this._provider = provider;
-        this._session = new Soup.Session();
+        this._randomizer = randomizer;
+        this._session = session;
+        this._cancellable = cancellable;
     }
 
     async getImages(requiredCount) {
@@ -115,7 +113,8 @@ class OnlineSourceStrategy extends SourceStrategy {
             
             try {
                 const bytes = await new Promise((resolve, reject) => {
-                    this._session.send_and_read_async(msg, GLib.PRIORITY_DEFAULT, null, (session, res) => {
+                    // Injecting cancellable handles unexpected extension disablement
+                    this._session.send_and_read_async(msg, GLib.PRIORITY_DEFAULT, this._cancellable, (session, res) => {
                         try {
                             const resultBytes = session.send_and_read_finish(res);
                             if (msg.get_status() === Soup.Status.OK || msg.get_status() === Soup.Status.FOUND) {
@@ -133,8 +132,9 @@ class OnlineSourceStrategy extends SourceStrategy {
                 const file = Gio.File.new_for_path(outPath);
                 
                 await new Promise((resolve, reject) => {
+                    // Injecting cancellable prevents hanging file writes 
                     file.replace_contents_bytes_async(
-                        bytes, null, false, Gio.FileCreateFlags.REPLACE_DESTINATION, null, 
+                        bytes, null, false, Gio.FileCreateFlags.REPLACE_DESTINATION, this._cancellable, 
                         (f, res) => {
                             try {
                                 f.replace_contents_finish(res);
@@ -148,6 +148,10 @@ class OnlineSourceStrategy extends SourceStrategy {
 
                 paths.push(outPath);
             } catch (e) {
+                // If it was cancelled by lifecycle cleanup, let the error propagate up silently
+                if (e.matches && e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+                    throw e;
+                }
                 console.error(`Wallshuffle: Failed to fetch online image from ${this._provider} - ${e.message}`);
             }
         }
@@ -157,15 +161,15 @@ class OnlineSourceStrategy extends SourceStrategy {
 }
 
 export class SourceFactory {
-    static getStrategy(settings) {
+    static getStrategy(settings, randomizer, session, cancellable) {
         const type = settings.get_string('source-type');
         
         if (type === 'online' || type === 'online-picsum') {
-            return new OnlineSourceStrategy(settings, 'picsum');
+            return new OnlineSourceStrategy(settings, 'picsum', randomizer, session, cancellable);
         } else if (type === 'online-loremflickr') {
-            return new OnlineSourceStrategy(settings, 'loremflickr');
+            return new OnlineSourceStrategy(settings, 'loremflickr', randomizer, session, cancellable);
         }
         
-        return new FolderSourceStrategy(settings);
+        return new FolderSourceStrategy(settings, randomizer);
     }
 }

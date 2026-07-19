@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wallshuffle\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Global Preferences"
+msgstr "Algemene Voorkeuren"
+
+msgid "Configure behavior, timing, and sources."
+msgstr "Configureer gedrag, timing en bronnen."
+
+msgid "Randomize / Shuffle"
+msgstr "Willekeurig / Schudden"
+
+msgid "Turn off to assign static wallpapers sequentially per monitor."
+msgstr "Schakel uit om statische achtergronden sequentieel per monitor toe te wijzen."
+
+msgid "Same Image on All Monitors"
+msgstr "Zelfde Afbeelding op Alle Monitoren"
+
+msgid "Apply one background to all displays. Requires a multi-monitor setup."
+msgstr "Pas één achtergrond toe op alle schermen. Vereist meerdere monitoren."
+
+msgid "Change Interval (Minutes)"
+msgstr "Wijzigingsinterval (Minuten)"
+
+msgid "Frequency of background cycling."
+msgstr "Frequentie waarmee de achtergrond wisselt."
+
+msgid "Wallpaper Source"
+msgstr "Achtergrondbron"
+
+msgid "Where to fetch backgrounds from."
+msgstr "Waar achtergronden vandaan worden gehaald."
+
+msgid "Local Folder"
+msgstr "Lokale Map"
+
+msgid "Online Random (Picsum)"
+msgstr "Online Willekeurig (Picsum)"
+
+msgid "Online Random (LoremFlickr)"
+msgstr "Online Willekeurig (LoremFlickr)"
+
+msgid "Wallpaper Folder"
+msgstr "Achtergrondmap"
+
+msgid "Select a directory..."
+msgstr "Selecteer een map..."
+
+msgid "Select Wallpaper Source Folder"
+msgstr "Selecteer Bronmap Achtergronden"
+
+msgid "Per-Monitor Configuration"
+msgstr "Configuratie per Monitor"
+
+msgid "Assign individual scaling strategies and static images to connected displays."
+msgstr "Wijs individuele schaalstrategieën en statische afbeeldingen toe aan schermen."
+
+msgid "Unknown Display"
+msgstr "Onbekend Scherm"
+
+msgid "Display %d"
+msgstr "Scherm %d"
+
+msgid "Scaling Strategy"
+msgstr "Schaalstrategie"
+
+msgid "Specific Static Image"
+msgstr "Specifieke Statische Afbeelding"
+
+msgid "Default (Alphabetical from folder)"
+msgstr "Standaard (Alfabetisch uit map)"
+
+msgid "Select Static Image for %s"
+msgstr "Selecteer Statische Afbeelding voor %s"
+
+msgid "About"
+msgstr "Over"
+
+msgid "Extension Information"
+msgstr "Extensie Informatie"
+
+msgid "Wallshuffle"
+msgstr "Wallshuffle"
+
+msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
+msgstr "Stel dynamische achtergronden in per monitor met geavanceerde rendering."
+
+msgid "Version"
+msgstr "Versie"
+
+msgid "Local / Development"
+msgstr "Lokaal / Ontwikkeling"
+
+msgid "Author"
+msgstr "Auteur"
+
+msgid "Buy me a coffee 💙☕"
+msgstr "Koop een kopje koffie voor me 💙☕"
+
+msgid "Report a Bug 🪲"
+msgstr "Meld een Bug 🪲"
+
+msgid "Request a Feature"
+msgstr "Vraag een Functie Aan"
+
+msgid "Zoom"
+msgstr "Zoomen"
+
+msgid "Fit"
+msgstr "Passend Maken"
+
+msgid "Centre"
+msgstr "Centreren"
+
+msgid "Fill"
+msgstr "Vullen"
+
+msgid "Tile"
+msgstr "Tegelen"
+
+msgid "Span"
+msgstr "Spreiden"

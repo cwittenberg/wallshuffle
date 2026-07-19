@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wallshuffle\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings"
+msgstr "Ustawienia"
+
+msgid "Global Preferences"
+msgstr "Preferencje globalne"
+
+msgid "Configure behavior, timing, and sources."
+msgstr "Skonfiguruj zachowanie, czas i źródła."
+
+msgid "Randomize / Shuffle"
+msgstr "Losowo / Tasuj"
+
+msgid "Turn off to assign static wallpapers sequentially per monitor."
+msgstr "Wyłącz, aby przypisywać statyczne tapety sekwencyjnie na monitor."
+
+msgid "Same Image on All Monitors"
+msgstr "Ten sam obraz na wszystkich monitorach"
+
+msgid "Apply one background to all displays. Requires a multi-monitor setup."
+msgstr "Zastosuj jedno tło do wszystkich ekranów. Wymaga konfiguracji wielomonitorowej."
+
+msgid "Change Interval (Minutes)"
+msgstr "Interwał zmian (minuty)"
+
+msgid "Frequency of background cycling."
+msgstr "Częstotliwość zmian tła."
+
+msgid "Wallpaper Source"
+msgstr "Źródło tapet"
+
+msgid "Where to fetch backgrounds from."
+msgstr "Skąd pobierać tła."
+
+msgid "Local Folder"
+msgstr "Lokalny folder"
+
+msgid "Online Random (Picsum)"
+msgstr "Losowe Online (Picsum)"
+
+msgid "Online Random (LoremFlickr)"
+msgstr "Losowe Online (LoremFlickr)"
+
+msgid "Wallpaper Folder"
+msgstr "Folder tapet"
+
+msgid "Select a directory..."
+msgstr "Wybierz katalog..."
+
+msgid "Select Wallpaper Source Folder"
+msgstr "Wybierz folder źródłowy tapet"
+
+msgid "Per-Monitor Configuration"
+msgstr "Konfiguracja na monitor"
+
+msgid "Assign individual scaling strategies and static images to connected displays."
+msgstr "Przypisz indywidualne strategie skalowania do podłączonych ekranów."
+
+msgid "Unknown Display"
+msgstr "Nieznany ekran"
+
+msgid "Display %d"
+msgstr "Ekran %d"
+
+msgid "Scaling Strategy"
+msgstr "Strategia skalowania"
+
+msgid "Specific Static Image"
+msgstr "Określony obraz statyczny"
+
+msgid "Default (Alphabetical from folder)"
+msgstr "Domyślny (alfabetycznie z folderu)"
+
+msgid "Select Static Image for %s"
+msgstr "Wybierz obraz statyczny dla %s"
+
+msgid "About"
+msgstr "O programie"
+
+msgid "Extension Information"
+msgstr "Informacje o rozszerzeniu"
+
+msgid "Wallshuffle"
+msgstr "Wallshuffle"
+
+msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
+msgstr "Ustaw dynamiczne tła dla poszczególnych monitorów."
+
+msgid "Version"
+msgstr "Wersja"
+
+msgid "Local / Development"
+msgstr "Lokalnie / Rozwój"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Buy me a coffee 💙☕"
+msgstr "Kup mi kawę 💙☕"
+
+msgid "Report a Bug 🪲"
+msgstr "Zgłoś błąd 🪲"
+
+msgid "Request a Feature"
+msgstr "Poproś o funkcję"
+
+msgid "Zoom"
+msgstr "Powiększ"
+
+msgid "Fit"
+msgstr "Dopasuj"
+
+msgid "Centre"
+msgstr "Wyśrodkuj"
+
+msgid "Fill"
+msgstr "Wypełnij"
+
+msgid "Tile"
+msgstr "Kafelki"
+
+msgid "Span"
+msgstr "Rozciągnij"

@@ -2,14 +2,23 @@ import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
+import Soup from 'gi://Soup?version=3.0';
 import GdkPixbuf from 'gi://GdkPixbuf';
 import { SourceFactory } from './sources.js';
 import { RenderStrategyFactory } from './rendering.js';
+import { GNOMEDisplayAdapter } from './display_adapter.js';
+import { Randomizer } from './randomization.js';
 
 export default class WallshuffleExtension extends Extension {
     enable() {
         this._timeoutId = null;
         this._isUpdating = false;
+        
+        // Tie state explicitly to the extension lifecycle
+        this._cancellable = new Gio.Cancellable();
+        this._randomizer = new Randomizer();
+        this._httpSession = new Soup.Session();
+        this._bgSettings = new Gio.Settings({ schema_id: 'org.gnome.desktop.background' });
         this._settings = this.getSettings();
 
         this._settings.connectObject(
@@ -40,11 +49,34 @@ export default class WallshuffleExtension extends Extension {
     }
 
     disable() {
+        // 1. Immediately kill any looping timers
         this._clearTimer();
+        
+        // 2. Abort any in-flight asynchronous operations (HTTP downloads, File writes)
+        if (this._cancellable) {
+            this._cancellable.cancel();
+            this._cancellable = null;
+        }
+        
+        // 3. Gracefully kill the networking session
+        if (this._httpSession) {
+            this._httpSession.abort();
+            this._httpSession = null;
+        }
+
+        // 4. Destroy the randomizer state
+        if (this._randomizer) {
+            this._randomizer.clear();
+            this._randomizer = null;
+        }
+
+        // 5. Clean up settings hooks
         if (this._settings) {
             this._settings.disconnectObject(this);
             this._settings = null;
         }
+        
+        this._bgSettings = null;
         Main.layoutManager.disconnectObject(this);
     }
 
@@ -79,24 +111,32 @@ export default class WallshuffleExtension extends Extension {
         this._isUpdating = true;
 
         try {
-            const nMonitors = global.display.get_n_monitors();
+            const displayAdapter = new GNOMEDisplayAdapter(global.display);
+            const monitors = displayAdapter.getMonitors();
+            const nMonitors = monitors.length;
+            
             if (nMonitors === 0) return;
 
-            const sourceStrategy = SourceFactory.getStrategy(this._settings);
+            const sourceStrategy = SourceFactory.getStrategy(
+                this._settings, 
+                this._randomizer, 
+                this._httpSession, 
+                this._cancellable
+            );
             
-            // If the user wants the same image on all monitors, we only request 1 image.
             const useSameImage = this._settings.get_boolean('same-image-all-monitors');
             const requiredCount = (useSameImage && nMonitors > 1) ? 1 : nMonitors;
 
             const images = await sourceStrategy.getImages(requiredCount);
+            
+            // Safety check: Avoid writing to destroyed memory if extension disabled mid-download
+            if (!this._settings || this._cancellable.is_cancelled()) return;
             if (images.length === 0) return;
 
             let globalBox = { minX: 0, minY: 0, maxX: 0, maxY: 0, w: 0, h: 0 };
-            let monitors = [];
 
-            for (let i = 0; i < nMonitors; i++) {
-                const geom = global.display.get_monitor_geometry(i);
-                monitors.push({ index: i, geom: geom });
+            for (const mon of monitors) {
+                const geom = mon.geom;
                 if (geom.x < globalBox.minX) globalBox.minX = geom.x;
                 if (geom.y < globalBox.minY) globalBox.minY = geom.y;
                 if (geom.x + geom.width > globalBox.maxX) globalBox.maxX = geom.x + geom.width;
@@ -120,7 +160,6 @@ export default class WallshuffleExtension extends Extension {
 
             for (let i = 0; i < monitors.length; i++) {
                 const mon = monitors[i];
-                // Loop around the returned images array. If requiredCount was 1, all monitors get index 0.
                 const imgPath = images[i % images.length];
 
                 let src;
@@ -153,12 +192,15 @@ export default class WallshuffleExtension extends Extension {
 
             dest.savev(outPath, 'jpeg', ['quality'], ['100']);
 
-            const bgSettings = new Gio.Settings({ schema_id: 'org.gnome.desktop.background' });
-            bgSettings.set_string('picture-options', 'spanned');
-            bgSettings.set_string('picture-uri', `file://${outPath}`);
-            bgSettings.set_string('picture-uri-dark', `file://${outPath}`);
+            this._bgSettings.set_string('picture-options', 'spanned');
+            this._bgSettings.set_string('picture-uri', `file://${outPath}`);
+            this._bgSettings.set_string('picture-uri-dark', `file://${outPath}`);
 
         } catch (e) {
+            // Do not log errors if the crash was simply caused by the user disabling the extension
+            if (e.matches && e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+                return;
+            }
             console.error(`Wallshuffle: Fatal error during update - ${e.message}`);
         } finally {
             this._isUpdating = false;

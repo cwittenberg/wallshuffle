@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wallshuffle\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings"
+msgstr "Impostazioni"
+
+msgid "Global Preferences"
+msgstr "Preferenze Globali"
+
+msgid "Configure behavior, timing, and sources."
+msgstr "Configura comportamento, tempi e sorgenti."
+
+msgid "Randomize / Shuffle"
+msgstr "Casuale / Mescola"
+
+msgid "Turn off to assign static wallpapers sequentially per monitor."
+msgstr "Disattiva per assegnare sfondi statici in sequenza per monitor."
+
+msgid "Same Image on All Monitors"
+msgstr "Stessa Immagine su Tutti i Monitor"
+
+msgid "Apply one background to all displays. Requires a multi-monitor setup."
+msgstr "Applica uno sfondo a tutti gli schermi. Richiede configurazione multi-monitor."
+
+msgid "Change Interval (Minutes)"
+msgstr "Intervallo di Cambio (Minuti)"
+
+msgid "Frequency of background cycling."
+msgstr "Frequenza di rotazione dello sfondo."
+
+msgid "Wallpaper Source"
+msgstr "Sorgente Sfondo"
+
+msgid "Where to fetch backgrounds from."
+msgstr "Da dove recuperare gli sfondi."
+
+msgid "Local Folder"
+msgstr "Cartella Locale"
+
+msgid "Online Random (Picsum)"
+msgstr "Casuale Online (Picsum)"
+
+msgid "Online Random (LoremFlickr)"
+msgstr "Casuale Online (LoremFlickr)"
+
+msgid "Wallpaper Folder"
+msgstr "Cartella Sfondi"
+
+msgid "Select a directory..."
+msgstr "Seleziona una directory..."
+
+msgid "Select Wallpaper Source Folder"
+msgstr "Seleziona Cartella di Origine Sfondi"
+
+msgid "Per-Monitor Configuration"
+msgstr "Configurazione per Monitor"
+
+msgid "Assign individual scaling strategies and static images to connected displays."
+msgstr "Assegna strategie di ridimensionamento individuali e immagini statiche."
+
+msgid "Unknown Display"
+msgstr "Schermo Sconosciuto"
+
+msgid "Display %d"
+msgstr "Schermo %d"
+
+msgid "Scaling Strategy"
+msgstr "Strategia di Ridimensionamento"
+
+msgid "Specific Static Image"
+msgstr "Immagine Statica Specifica"
+
+msgid "Default (Alphabetical from folder)"
+msgstr "Predefinito (Alfabetico dalla cartella)"
+
+msgid "Select Static Image for %s"
+msgstr "Seleziona Immagine Statica per %s"
+
+msgid "About"
+msgstr "Informazioni"
+
+msgid "Extension Information"
+msgstr "Informazioni sull'Estensione"
+
+msgid "Wallshuffle"
+msgstr "Wallshuffle"
+
+msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
+msgstr "Imposta sfondi dinamici per monitor utilizzando strategie avanzate."
+
+msgid "Version"
+msgstr "Versione"
+
+msgid "Local / Development"
+msgstr "Locale / Sviluppo"
+
+msgid "Author"
+msgstr "Autore"
+
+msgid "Buy me a coffee 💙☕"
+msgstr "Offrimi un caffè 💙☕"
+
+msgid "Report a Bug 🪲"
+msgstr "Segnala un Bug 🪲"
+
+msgid "Request a Feature"
+msgstr "Richiedi una Funzionalità"
+
+msgid "Zoom"
+msgstr "Zoom"
+
+msgid "Fit"
+msgstr "Adatta"
+
+msgid "Centre"
+msgstr "Centro"
+
+msgid "Fill"
+msgstr "Riempi"
+
+msgid "Tile"
+msgstr "Affianca"
+
+msgid "Span"
+msgstr "Espandi"

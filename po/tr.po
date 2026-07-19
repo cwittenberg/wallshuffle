@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wallshuffle\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "Global Preferences"
+msgstr "Genel Tercihler"
+
+msgid "Configure behavior, timing, and sources."
+msgstr "Davranış, zamanlama ve kaynakları yapılandırın."
+
+msgid "Randomize / Shuffle"
+msgstr "Rastgele / Karıştır"
+
+msgid "Turn off to assign static wallpapers sequentially per monitor."
+msgstr "Monitör başına statik duvar kağıtları atamak için kapatın."
+
+msgid "Same Image on All Monitors"
+msgstr "Tüm Monitörlerde Aynı Görüntü"
+
+msgid "Apply one background to all displays. Requires a multi-monitor setup."
+msgstr "Tüm ekranlara bir arka plan uygula. Çoklu monitör kurulumu gerektirir."
+
+msgid "Change Interval (Minutes)"
+msgstr "Değişim Aralığı (Dakika)"
+
+msgid "Frequency of background cycling."
+msgstr "Arka plan değişimi sıklığı."
+
+msgid "Wallpaper Source"
+msgstr "Duvar Kağıdı Kaynağı"
+
+msgid "Where to fetch backgrounds from."
+msgstr "Arka planların alınacağı yer."
+
+msgid "Local Folder"
+msgstr "Yerel Klasör"
+
+msgid "Online Random (Picsum)"
+msgstr "Çevrimiçi Rastgele (Picsum)"
+
+msgid "Online Random (LoremFlickr)"
+msgstr "Çevrimiçi Rastgele (LoremFlickr)"
+
+msgid "Wallpaper Folder"
+msgstr "Duvar Kağıdı Klasörü"
+
+msgid "Select a directory..."
+msgstr "Bir dizin seçin..."
+
+msgid "Select Wallpaper Source Folder"
+msgstr "Duvar Kağıdı Kaynak Klasörünü Seç"
+
+msgid "Per-Monitor Configuration"
+msgstr "Monitör Başına Yapılandırma"
+
+msgid "Assign individual scaling strategies and static images to connected displays."
+msgstr "Ekranlara bireysel ölçeklendirme stratejileri atayın."
+
+msgid "Unknown Display"
+msgstr "Bilinmeyen Ekran"
+
+msgid "Display %d"
+msgstr "Ekran %d"
+
+msgid "Scaling Strategy"
+msgstr "Ölçeklendirme Stratejisi"
+
+msgid "Specific Static Image"
+msgstr "Belirli Statik Görüntü"
+
+msgid "Default (Alphabetical from folder)"
+msgstr "Varsayılan (Klasörden Alfabetik)"
+
+msgid "Select Static Image for %s"
+msgstr "%s için Statik Görüntü Seç"
+
+msgid "About"
+msgstr "Hakkında"
+
+msgid "Extension Information"
+msgstr "Eklenti Bilgisi"
+
+msgid "Wallshuffle"
+msgstr "Wallshuffle"
+
+msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
+msgstr "Gelişmiş stratejiler kullanarak monitör başına arka plan ayarlayın."
+
+msgid "Version"
+msgstr "Sürüm"
+
+msgid "Local / Development"
+msgstr "Yerel / Geliştirme"
+
+msgid "Author"
+msgstr "Yazar"
+
+msgid "Buy me a coffee 💙☕"
+msgstr "Bana bir kahve ısmarla 💙☕"
+
+msgid "Report a Bug 🪲"
+msgstr "Hata Bildir 🪲"
+
+msgid "Request a Feature"
+msgstr "Özellik İste"
+
+msgid "Zoom"
+msgstr "Yakınlaştır"
+
+msgid "Fit"
+msgstr "Sığdır"
+
+msgid "Centre"
+msgstr "Ortala"
+
+msgid "Fill"
+msgstr "Doldur"
+
+msgid "Tile"
+msgstr "Döşe"
+
+msgid "Span"
+msgstr "Yay"

@@ -18,21 +18,37 @@ rm -f "$UUID.shell-extension.zip"
 
 echo "Creating build directory structure..."
 mkdir -p "$BUILD_DIR/schemas"
+mkdir -p "$BUILD_DIR/locale"
 
 echo "Validating extension files..."
-for file in metadata.json extension.js prefs.js sources.js rendering.js display_adapter.js randomization.js prefs_about.js schemas/org.gnome.shell.extensions.wallshuffle.gschema.xml; do
+for file in metadata.json extension.js prefs.js sources.js rendering.js display_adapter.js randomization.js prefs_about.js gtk_adapter.js wallshuffle.svg schemas/org.gnome.shell.extensions.wallshuffle.gschema.xml; do
     if [ ! -f "$file" ]; then
         echo "Error: $file not found in the current directory. Please make sure all files exist."
         exit 1
     fi
 done
 
+if [ ! -d "po" ]; then
+    echo "Error: po directory not found in the current directory. Please make sure it exists."
+    exit 1
+fi
+
 echo "Compiling GSettings schema locally..."
 glib-compile-schemas --strict schemas/
 
+echo "Compiling translations..."
+for po in po/*.po; do
+    if [ -f "$po" ]; then
+        lang=$(basename "$po" .po)
+        mkdir -p "$BUILD_DIR/locale/$lang/LC_MESSAGES"
+        msgfmt -c -o "$BUILD_DIR/locale/$lang/LC_MESSAGES/wallshuffle.mo" "$po"
+    fi
+done
+
 echo "Copying files to build directory..."
-cp metadata.json extension.js prefs.js sources.js rendering.js display_adapter.js randomization.js prefs_about.js "$BUILD_DIR/"
+cp metadata.json extension.js prefs.js sources.js rendering.js display_adapter.js randomization.js prefs_about.js gtk_adapter.js wallshuffle.svg "$BUILD_DIR/"
 cp -r schemas "$BUILD_DIR/"
+cp -r po "$BUILD_DIR/"
 rm -f "$BUILD_DIR/schemas/gschemas.compiled"
 
 echo "Packaging extension..."
@@ -43,6 +59,10 @@ if command -v gnome-extensions &> /dev/null; then
         "--extra-source=display_adapter.js"
         "--extra-source=randomization.js"
         "--extra-source=prefs_about.js"
+        "--extra-source=gtk_adapter.js"
+        "--extra-source=wallshuffle.svg"
+        "--extra-source=locale"
+        "--extra-source=po"
         "--extra-source=schemas"
     )
     gnome-extensions pack "$BUILD_DIR" "${PACK_ARGS[@]}" --force
@@ -68,7 +88,11 @@ cp "$BUILD_DIR/rendering.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/display_adapter.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/randomization.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/prefs_about.js" "$EXTENSION_DIR/"
+cp "$BUILD_DIR/gtk_adapter.js" "$EXTENSION_DIR/"
+cp "$BUILD_DIR/wallshuffle.svg" "$EXTENSION_DIR/"
 cp -r "$BUILD_DIR/schemas" "$EXTENSION_DIR/"
+cp -r "$BUILD_DIR/locale" "$EXTENSION_DIR/"
+cp -r "$BUILD_DIR/po" "$EXTENSION_DIR/"
 
 echo "Compiling schemas for local installation..."
 glib-compile-schemas "$EXTENSION_DIR/schemas/"

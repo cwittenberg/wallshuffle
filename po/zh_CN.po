@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wallshuffle\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Global Preferences"
+msgstr "全局首选项"
+
+msgid "Configure behavior, timing, and sources."
+msgstr "配置行为、计时和来源。"
+
+msgid "Randomize / Shuffle"
+msgstr "随机 / 随机播放"
+
+msgid "Turn off to assign static wallpapers sequentially per monitor."
+msgstr "关闭以按顺序为每个显示器分配静态壁纸。"
+
+msgid "Same Image on All Monitors"
+msgstr "所有显示器使用同一图片"
+
+msgid "Apply one background to all displays. Requires a multi-monitor setup."
+msgstr "将一个背景应用于所有显示器。需要多显示器设置。"
+
+msgid "Change Interval (Minutes)"
+msgstr "更改间隔 (分钟)"
+
+msgid "Frequency of background cycling."
+msgstr "背景循环的频率。"
+
+msgid "Wallpaper Source"
+msgstr "壁纸来源"
+
+msgid "Where to fetch backgrounds from."
+msgstr "从何处获取背景。"
+
+msgid "Local Folder"
+msgstr "本地文件夹"
+
+msgid "Online Random (Picsum)"
+msgstr "在线随机 (Picsum)"
+
+msgid "Online Random (LoremFlickr)"
+msgstr "在线随机 (LoremFlickr)"
+
+msgid "Wallpaper Folder"
+msgstr "壁纸文件夹"
+
+msgid "Select a directory..."
+msgstr "选择目录..."
+
+msgid "Select Wallpaper Source Folder"
+msgstr "选择壁纸源文件夹"
+
+msgid "Per-Monitor Configuration"
+msgstr "每台显示器配置"
+
+msgid "Assign individual scaling strategies and static images to connected displays."
+msgstr "为连接的显示器分配单独的缩放策略和静态图片。"
+
+msgid "Unknown Display"
+msgstr "未知显示器"
+
+msgid "Display %d"
+msgstr "显示器 %d"
+
+msgid "Scaling Strategy"
+msgstr "缩放策略"
+
+msgid "Specific Static Image"
+msgstr "特定静态图片"
+
+msgid "Default (Alphabetical from folder)"
+msgstr "默认（文件夹中的字母顺序）"
+
+msgid "Select Static Image for %s"
+msgstr "为 %s 选择静态图片"
+
+msgid "About"
+msgstr "关于"
+
+msgid "Extension Information"
+msgstr "扩展信息"
+
+msgid "Wallshuffle"
+msgstr "Wallshuffle"
+
+msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
+msgstr "使用高级渲染策略设置动态的单显示器背景。"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "Local / Development"
+msgstr "本地 / 开发"
+
+msgid "Author"
+msgstr "作者"
+
+msgid "Buy me a coffee 💙☕"
+msgstr "请我喝杯咖啡 💙☕"
+
+msgid "Report a Bug 🪲"
+msgstr "报告错误 🪲"
+
+msgid "Request a Feature"
+msgstr "请求新功能"
+
+msgid "Zoom"
+msgstr "缩放"
+
+msgid "Fit"
+msgstr "适应"
+
+msgid "Centre"
+msgstr "居中"
+
+msgid "Fill"
+msgstr "填充"
+
+msgid "Tile"
+msgstr "平铺"
+
+msgid "Span"
+msgstr "跨越"

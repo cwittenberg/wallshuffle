@@ -1,0 +1,131 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wallshuffle\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Right-To-Left: Yes\n"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Global Preferences"
+msgstr "التفضيلات العامة"
+
+msgid "Configure behavior, timing, and sources."
+msgstr "تكوين السلوك والتوقيت والمصادر."
+
+msgid "Randomize / Shuffle"
+msgstr "عشوائي / خلط"
+
+msgid "Turn off to assign static wallpapers sequentially per monitor."
+msgstr "قم بإيقاف التشغيل لتعيين خلفيات ثابتة بالتسلسل لكل شاشة."
+
+msgid "Same Image on All Monitors"
+msgstr "نفس الصورة على جميع الشاشات"
+
+msgid "Apply one background to all displays. Requires a multi-monitor setup."
+msgstr "تطبيق خلفية واحدة على جميع الشاشات. يتطلب إعداد شاشات متعددة."
+
+msgid "Change Interval (Minutes)"
+msgstr "فترة التغيير (دقائق)"
+
+msgid "Frequency of background cycling."
+msgstr "تردد دورة الخلفية."
+
+msgid "Wallpaper Source"
+msgstr "مصدر الخلفيات"
+
+msgid "Where to fetch backgrounds from."
+msgstr "من أين يتم جلب الخلفيات."
+
+msgid "Local Folder"
+msgstr "مجلد محلي"
+
+msgid "Online Random (Picsum)"
+msgstr "عشوائي عبر الإنترنت (Picsum)"
+
+msgid "Online Random (LoremFlickr)"
+msgstr "عشوائي عبر الإنترنت (LoremFlickr)"
+
+msgid "Wallpaper Folder"
+msgstr "مجلد الخلفيات"
+
+msgid "Select a directory..."
+msgstr "اختر مجلداً..."
+
+msgid "Select Wallpaper Source Folder"
+msgstr "تحديد مجلد مصدر الخلفيات"
+
+msgid "Per-Monitor Configuration"
+msgstr "تكوين لكل شاشة"
+
+msgid "Assign individual scaling strategies and static images to connected displays."
+msgstr "تعيين استراتيجيات قياس فردية وصور ثابتة للشاشات المتصلة."
+
+msgid "Unknown Display"
+msgstr "شاشة غير معروفة"
+
+msgid "Display %d"
+msgstr "شاشة %d"
+
+msgid "Scaling Strategy"
+msgstr "استراتيجية القياس"
+
+msgid "Specific Static Image"
+msgstr "صورة ثابتة محددة"
+
+msgid "Default (Alphabetical from folder)"
+msgstr "الافتراضي (أبجديًا من المجلد)"
+
+msgid "Select Static Image for %s"
+msgstr "تحديد صورة ثابتة لـ %s"
+
+msgid "About"
+msgstr "حول"
+
+msgid "Extension Information"
+msgstr "معلومات الإضافة"
+
+msgid "Wallshuffle"
+msgstr "Wallshuffle"
+
+msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
+msgstr "تعيين خلفيات ديناميكية لكل شاشة باستخدام استراتيجيات عرض متقدمة."
+
+msgid "Version"
+msgstr "الإصدار"
+
+msgid "Local / Development"
+msgstr "محلي / تطوير"
+
+msgid "Author"
+msgstr "المؤلف"
+
+msgid "Buy me a coffee 💙☕"
+msgstr "اشتري لي قهوة 💙☕"
+
+msgid "Report a Bug 🪲"
+msgstr "الإبلاغ عن خطأ 🪲"
+
+msgid "Request a Feature"
+msgstr "طلب ميزة"
+
+msgid "Zoom"
+msgstr "تكبير"
+
+msgid "Fit"
+msgstr "احتواء"
+
+msgid "Centre"
+msgstr "مركز"
+
+msgid "Fill"
+msgstr "ملء"
+
+msgid "Tile"
+msgstr "تجانب"
+
+msgid "Span"
+msgstr "امتداد"

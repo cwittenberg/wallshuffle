@@ -1,6 +1,7 @@
 import Adw from 'gi://Adw';
 import Gio from 'gi://Gio';
 import Gtk from 'gi://Gtk';
+import { gettext as _ } from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
 function wrap(row) {
     row.set_subtitle_lines(0);
@@ -26,18 +27,18 @@ function createLinkButton(title, uri, styleClass = null) {
 
 export function buildAboutPage(metadata, dir) {
     const pageAbout = new Adw.PreferencesPage({
-        title: 'About',
+        title: _('About'),
         icon_name: 'dialog-information-symbolic'
     });
 
-    const groupAboutInfo = new Adw.PreferencesGroup({ title: 'Extension Information' });
+    const groupAboutInfo = new Adw.PreferencesGroup({ title: _('Extension Information') });
 
     const logoRow = new Adw.ActionRow({
-        title: 'Wallshuffle',
-        subtitle: 'Set dynamic, per-monitor backgrounds using advanced rendering strategies.'
+        title: _('Wallshuffle'),
+        subtitle: _('Set dynamic, per-monitor backgrounds using advanced rendering strategies.')
     });
 
-    const imagePath = dir.get_child('logo.png').get_path();
+    const imagePath = dir.get_child('wallshuffle.svg').get_path();
     const gfile = Gio.File.new_for_path(imagePath);
 
     const logoImg = new Gtk.Picture({
@@ -54,9 +55,9 @@ export function buildAboutPage(metadata, dir) {
     
     logoRow.add_prefix(logoImg);
     
-    const versionStr = metadata.version ? metadata.version.toString() : 'Local / Development';
-    const rowVersion = new Adw.ActionRow({ title: 'Version', subtitle: versionStr });
-    const rowAuthor = new Adw.ActionRow({ title: 'Author', subtitle: 'Christian Wittenberg' });
+    const versionStr = metadata.version ? metadata.version.toString() : _('Local / Development');
+    const rowVersion = new Adw.ActionRow({ title: _('Version'), subtitle: versionStr });
+    const rowAuthor = new Adw.ActionRow({ title: _('Author'), subtitle: 'Christian Wittenberg' });
     
     groupAboutInfo.add(wrap(logoRow));
     groupAboutInfo.add(wrap(rowVersion));
@@ -73,18 +74,18 @@ export function buildAboutPage(metadata, dir) {
     });
 
     linkBox.append(createLinkButton(
-        'Buy me a coffee 💙☕',
+        _('Buy me a coffee 💙☕'),
         'https://ko-fi.com/cwittenberg',
         'suggested-action' 
     ));
 
     linkBox.append(createLinkButton(
-        'Report a Bug 🪲',
+        _('Report a Bug 🪲'),
         'https://github.com/cwittenberg/wallshuffle/issues/new'
     ));
 
     linkBox.append(createLinkButton(
-        'Request a Feature',
+        _('Request a Feature'),
         'https://github.com/cwittenberg/wallshuffle/issues/new'
     ));
 

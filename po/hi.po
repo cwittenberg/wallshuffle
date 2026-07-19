@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wallshuffle\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings"
+msgstr "सेटिंग्स"
+
+msgid "Global Preferences"
+msgstr "वैश्विक प्राथमिकताएं"
+
+msgid "Configure behavior, timing, and sources."
+msgstr "व्यवहार, समय और स्रोत कॉन्फ़िगर करें।"
+
+msgid "Randomize / Shuffle"
+msgstr "यादृच्छिक / शफ़ल"
+
+msgid "Turn off to assign static wallpapers sequentially per monitor."
+msgstr "प्रति मॉनिटर क्रमिक रूप से स्थिर वॉलपेपर असाइन करने के लिए बंद करें।"
+
+msgid "Same Image on All Monitors"
+msgstr "सभी मॉनिटर्स पर एक ही छवि"
+
+msgid "Apply one background to all displays. Requires a multi-monitor setup."
+msgstr "सभी डिस्प्ले पर एक बैकग्राउंड लागू करें। मल्टी-मॉनिटर सेटअप की आवश्यकता है।"
+
+msgid "Change Interval (Minutes)"
+msgstr "परिवर्तन अंतराल (मिनट)"
+
+msgid "Frequency of background cycling."
+msgstr "पृष्ठभूमि चक्रण की आवृत्ति।"
+
+msgid "Wallpaper Source"
+msgstr "वॉलपेपर का स्रोत"
+
+msgid "Where to fetch backgrounds from."
+msgstr "बैकग्राउंड कहां से लाएं।"
+
+msgid "Local Folder"
+msgstr "स्थानीय फ़ोल्डर"
+
+msgid "Online Random (Picsum)"
+msgstr "ऑनलाइन यादृच्छिक (Picsum)"
+
+msgid "Online Random (LoremFlickr)"
+msgstr "ऑनलाइन यादृच्छिक (LoremFlickr)"
+
+msgid "Wallpaper Folder"
+msgstr "वॉलपेपर फ़ोल्डर"
+
+msgid "Select a directory..."
+msgstr "एक निर्देशिका चुनें..."
+
+msgid "Select Wallpaper Source Folder"
+msgstr "वॉलपेपर स्रोत फ़ोल्डर चुनें"
+
+msgid "Per-Monitor Configuration"
+msgstr "प्रति-मॉनिटर कॉन्फ़िगरेशन"
+
+msgid "Assign individual scaling strategies and static images to connected displays."
+msgstr "कनेक्ट किए गए डिस्प्ले को अलग-अलग स्केलिंग रणनीतियाँ और स्थिर चित्र असाइन करें।"
+
+msgid "Unknown Display"
+msgstr "अज्ञात डिस्प्ले"
+
+msgid "Display %d"
+msgstr "डिस्प्ले %d"
+
+msgid "Scaling Strategy"
+msgstr "स्केलिंग रणनीति"
+
+msgid "Specific Static Image"
+msgstr "विशिष्ट स्थिर छवि"
+
+msgid "Default (Alphabetical from folder)"
+msgstr "डिफ़ॉल्ट (फ़ोल्डर से वर्णानुक्रमिक)"
+
+msgid "Select Static Image for %s"
+msgstr "%s के लिए स्थिर छवि चुनें"
+
+msgid "About"
+msgstr "के बारे में"
+
+msgid "Extension Information"
+msgstr "विस्तार जानकारी"
+
+msgid "Wallshuffle"
+msgstr "Wallshuffle"
+
+msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
+msgstr "उन्नत रेंडरिंग रणनीतियों का उपयोग करके गतिशील बैकग्राउंड सेट करें।"
+
+msgid "Version"
+msgstr "संस्करण"
+
+msgid "Local / Development"
+msgstr "स्थानीय / विकास"
+
+msgid "Author"
+msgstr "लेखक"
+
+msgid "Buy me a coffee 💙☕"
+msgstr "मुझे एक कॉफी खरीदें 💙☕"
+
+msgid "Report a Bug 🪲"
+msgstr "बग रिपोर्ट करें 🪲"
+
+msgid "Request a Feature"
+msgstr "सुविधा का अनुरोध करें"
+
+msgid "Zoom"
+msgstr "ज़ूम"
+
+msgid "Fit"
+msgstr "फ़िट"
+
+msgid "Centre"
+msgstr "केंद्र"
+
+msgid "Fill"
+msgstr "भरें"
+
+msgid "Tile"
+msgstr "टाइल"
+
+msgid "Span"
+msgstr "विस्तार"

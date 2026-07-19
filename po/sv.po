@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wallshuffle\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings"
+msgstr "Inställningar"
+
+msgid "Global Preferences"
+msgstr "Globala inställningar"
+
+msgid "Configure behavior, timing, and sources."
+msgstr "Konfigurera beteende, tidsintervall och källor."
+
+msgid "Randomize / Shuffle"
+msgstr "Slumpa / Blanda"
+
+msgid "Turn off to assign static wallpapers sequentially per monitor."
+msgstr "Stäng av för att tilldela statiska bakgrunder sekventiellt per skärm."
+
+msgid "Same Image on All Monitors"
+msgstr "Samma bild på alla skärmar"
+
+msgid "Apply one background to all displays. Requires a multi-monitor setup."
+msgstr "Applicera en bakgrund på alla skärmar. Kräver flera skärmar."
+
+msgid "Change Interval (Minutes)"
+msgstr "Ändringsintervall (Minuter)"
+
+msgid "Frequency of background cycling."
+msgstr "Frekvens för bakgrundsbyte."
+
+msgid "Wallpaper Source"
+msgstr "Bakgrundskälla"
+
+msgid "Where to fetch backgrounds from."
+msgstr "Varifrån bakgrunder hämtas."
+
+msgid "Local Folder"
+msgstr "Lokal mapp"
+
+msgid "Online Random (Picsum)"
+msgstr "Online slumpmässig (Picsum)"
+
+msgid "Online Random (LoremFlickr)"
+msgstr "Online slumpmässig (LoremFlickr)"
+
+msgid "Wallpaper Folder"
+msgstr "Bakgrundsmapp"
+
+msgid "Select a directory..."
+msgstr "Välj en katalog..."
+
+msgid "Select Wallpaper Source Folder"
+msgstr "Välj källmapp för bakgrunder"
+
+msgid "Per-Monitor Configuration"
+msgstr "Konfiguration per skärm"
+
+msgid "Assign individual scaling strategies and static images to connected displays."
+msgstr "Tilldela individuella skaleringsstrategier och statiska bilder till skärmar."
+
+msgid "Unknown Display"
+msgstr "Okänd skärm"
+
+msgid "Display %d"
+msgstr "Skärm %d"
+
+msgid "Scaling Strategy"
+msgstr "Skaleringsstrategi"
+
+msgid "Specific Static Image"
+msgstr "Specifik statisk bild"
+
+msgid "Default (Alphabetical from folder)"
+msgstr "Standard (Alfabetisk från mapp)"
+
+msgid "Select Static Image for %s"
+msgstr "Välj statisk bild för %s"
+
+msgid "About"
+msgstr "Om"
+
+msgid "Extension Information"
+msgstr "Tilläggsinformation"
+
+msgid "Wallshuffle"
+msgstr "Wallshuffle"
+
+msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
+msgstr "Ställ in dynamiska bakgrunder per skärm med avancerade strategier."
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Local / Development"
+msgstr "Lokalt / Utveckling"
+
+msgid "Author"
+msgstr "Författare"
+
+msgid "Buy me a coffee 💙☕"
+msgstr "Köp mig en kaffe 💙☕"
+
+msgid "Report a Bug 🪲"
+msgstr "Rapportera en bugg 🪲"
+
+msgid "Request a Feature"
+msgstr "Föreslå en funktion"
+
+msgid "Zoom"
+msgstr "Zooma"
+
+msgid "Fit"
+msgstr "Anpassa"
+
+msgid "Centre"
+msgstr "Centrera"
+
+msgid "Fill"
+msgstr "Fyll"
+
+msgid "Tile"
+msgstr "Sida vid sida"
+
+msgid "Span"
+msgstr "Spänn över"

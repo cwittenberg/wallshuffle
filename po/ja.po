@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wallshuffle\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Global Preferences"
+msgstr "全体設定"
+
+msgid "Configure behavior, timing, and sources."
+msgstr "動作、タイミング、およびソースを構成します。"
+
+msgid "Randomize / Shuffle"
+msgstr "ランダム / シャッフル"
+
+msgid "Turn off to assign static wallpapers sequentially per monitor."
+msgstr "モニターごとに静的な壁紙を順番に割り当てるにはオフにします。"
+
+msgid "Same Image on All Monitors"
+msgstr "すべてのモニターで同じ画像"
+
+msgid "Apply one background to all displays. Requires a multi-monitor setup."
+msgstr "すべてのディスプレイに1つの背景を適用します。マルチモニター環境が必要です。"
+
+msgid "Change Interval (Minutes)"
+msgstr "変更間隔（分）"
+
+msgid "Frequency of background cycling."
+msgstr "背景切り替えの頻度。"
+
+msgid "Wallpaper Source"
+msgstr "壁紙のソース"
+
+msgid "Where to fetch backgrounds from."
+msgstr "背景を取得する場所。"
+
+msgid "Local Folder"
+msgstr "ローカルフォルダー"
+
+msgid "Online Random (Picsum)"
+msgstr "オンラインランダム (Picsum)"
+
+msgid "Online Random (LoremFlickr)"
+msgstr "オンラインランダム (LoremFlickr)"
+
+msgid "Wallpaper Folder"
+msgstr "壁紙フォルダー"
+
+msgid "Select a directory..."
+msgstr "ディレクトリを選択..."
+
+msgid "Select Wallpaper Source Folder"
+msgstr "壁紙ソースフォルダーを選択"
+
+msgid "Per-Monitor Configuration"
+msgstr "モニター別設定"
+
+msgid "Assign individual scaling strategies and static images to connected displays."
+msgstr "接続されたディスプレイに個別のスケーリング戦略と静的画像を割り当てます。"
+
+msgid "Unknown Display"
+msgstr "不明なディスプレイ"
+
+msgid "Display %d"
+msgstr "ディスプレイ %d"
+
+msgid "Scaling Strategy"
+msgstr "スケーリング戦略"
+
+msgid "Specific Static Image"
+msgstr "特定の静的画像"
+
+msgid "Default (Alphabetical from folder)"
+msgstr "デフォルト（フォルダーからアルファベット順）"
+
+msgid "Select Static Image for %s"
+msgstr "%sの静的画像を選択"
+
+msgid "About"
+msgstr "について"
+
+msgid "Extension Information"
+msgstr "拡張機能情報"
+
+msgid "Wallshuffle"
+msgstr "Wallshuffle"
+
+msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
+msgstr "高度なレンダリング戦略を使用して、モニターごとの動的な背景を設定します。"
+
+msgid "Version"
+msgstr "バージョン"
+
+msgid "Local / Development"
+msgstr "ローカル / 開発"
+
+msgid "Author"
+msgstr "作成者"
+
+msgid "Buy me a coffee 💙☕"
+msgstr "コーヒーを奢る 💙☕"
+
+msgid "Report a Bug 🪲"
+msgstr "バグを報告 🪲"
+
+msgid "Request a Feature"
+msgstr "機能をリクエスト"
+
+msgid "Zoom"
+msgstr "ズーム"
+
+msgid "Fit"
+msgstr "合わせる"
+
+msgid "Centre"
+msgstr "中央配置"
+
+msgid "Fill"
+msgstr "塗りつぶし"
+
+msgid "Tile"
+msgstr "並べる"
+
+msgid "Span"
+msgstr "スパン"
