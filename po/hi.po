@@ -1,5 +1,8 @@
 msgid ""
 msgstr ""
+"Language-Team: Hindi\n"
+"Last-Translator: Wallshuffle Translation Team\n"
+"PO-Revision-Date: 2026-07-20 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
