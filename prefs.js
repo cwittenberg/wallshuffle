@@ -3,16 +3,21 @@ import Gio from 'gi://Gio';
 import Gtk from 'gi://Gtk';
 import Gdk from 'gi://Gdk';
 import GLib from 'gi://GLib';
+
 import { ExtensionPreferences, gettext as _ } from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 import { buildAboutPage } from './prefs_about.js';
-import { GtkScaleAdapter, GdkDisplayAdapter, GtkFileDialogAdapter } from './gtk_adapter.js';
 
 export default class WallshufflePrefs extends ExtensionPreferences {
     fillPreferencesWindow(window) {
         const settings = this.getSettings();
         
-        const displayAdapter = new GdkDisplayAdapter(Gdk.Display.get_default());
-        const monitors = displayAdapter.getMonitors();
+        const display = Gdk.Display.get_default();
+        const monitors = [];
+        const listModel = display.get_monitors();
+        for (let i = 0; i < listModel.get_n_items(); i++) {
+            monitors.push(listModel.get_item(i));
+        }
+        
         const nMonitors = monitors.length;
 
         // ==============================================================
@@ -81,6 +86,7 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         const minutesToIndex = (mins) => {
             if (mins <= steps[0]) return 0;
             if (mins >= steps[steps.length - 1]) return steps.length - 1;
+
             for (let i = 0; i < steps.length - 1; i++) {
                 if (mins >= steps[i] && mins <= steps[i + 1]) {
                     const range = steps[i + 1] - steps[i];
@@ -94,16 +100,18 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         const indexToMinutes = (idx) => {
             if (idx <= 0) return steps[0];
             if (idx >= steps.length - 1) return steps[steps.length - 1];
+
             const lower = Math.floor(idx);
             const upper = Math.ceil(idx);
+
             if (lower === upper) return steps[lower];
+
             const fraction = idx - lower;
             return Math.round(steps[lower] + fraction * (steps[upper] - steps[lower]));
         };
 
-        const scaleAdapter = new GtkScaleAdapter(rawIntervalScale);
-        scaleAdapter.setWidth(220);
-        scaleAdapter.setFormatValueFunc((scale, value) => {
+        rawIntervalScale.set_size_request(220, -1);
+        rawIntervalScale.set_format_value_func((scale, value) => {
             const mins = indexToMinutes(value);
             
             if (mins === 1) return _('1 minute');
@@ -156,6 +164,7 @@ export default class WallshufflePrefs extends ExtensionPreferences {
             _('Online Random (Picsum)'), 
             _('Online Random (LoremFlickr)')
         ]);
+
         const sourceRow = new Adw.ComboRow({
             title: _('Wallpaper Source'),
             subtitle: _('Where to fetch backgrounds from.'),
@@ -166,6 +175,7 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         let selectedIndex = 0;
         if (currentSource === 'online' || currentSource === 'online-picsum') selectedIndex = 1;
         if (currentSource === 'online-loremflickr') selectedIndex = 2;
+
         sourceRow.set_selected(selectedIndex);
         globalGroup.add(sourceRow);
 
@@ -184,12 +194,21 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         });
 
         folderButton.connect('clicked', () => {
-            const dialogAdapter = new GtkFileDialogAdapter(_('Select Wallpaper Source Folder'));
-            dialogAdapter.selectFolder(window, (path) => {
-                settings.set_string('folder', path);
-                folderRow.set_subtitle(path);
+            const dialog = new Gtk.FileDialog({ title: _('Select Wallpaper Source Folder') });
+            dialog.select_folder(window, null, (dlg, res) => {
+                try {
+                    const file = dlg.select_folder_finish(res);
+                    if (file) {
+                        const path = file.get_path();
+                        settings.set_string('folder', path);
+                        folderRow.set_subtitle(path);
+                    }
+                } catch (e) {
+                    // User dismissed intentionally
+                }
             });
         });
+
         folderRow.add_suffix(folderButton);
         globalGroup.add(folderRow);
 
@@ -214,6 +233,7 @@ export default class WallshufflePrefs extends ExtensionPreferences {
 
         let currentStrategyConfig = {};
         let currentImageConfig = {};
+
         try {
             currentStrategyConfig = JSON.parse(settings.get_string('monitor-settings'));
         } catch (e) { currentStrategyConfig = {}; }
@@ -253,6 +273,7 @@ export default class WallshufflePrefs extends ExtensionPreferences {
                 updatedConfig[i] = selectedMode;
                 settings.set_string('monitor-settings', JSON.stringify(updatedConfig));
             });
+
             expanderRow.add_row(strategyCombo);
 
             // 2. Specific Static Image ActionRow
@@ -268,14 +289,22 @@ export default class WallshufflePrefs extends ExtensionPreferences {
             });
 
             fileButton.connect('clicked', () => {
-                const dialogAdapter = new GtkFileDialogAdapter(_('Select Static Image for %s').replace('%s', modelName));
-                dialogAdapter.openFile(window, (path) => {
-                    let updatedImages = {};
-                    try { updatedImages = JSON.parse(settings.get_string('monitor-images')); } catch (e) { }
-                    updatedImages[i] = path;
-                    
-                    settings.set_string('monitor-images', JSON.stringify(updatedImages));
-                    staticImageRow.set_subtitle(path);
+                const dialog = new Gtk.FileDialog({ title: _('Select Static Image for %s').replace('%s', modelName) });
+                dialog.open(window, null, (dlg, res) => {
+                    try {
+                        const file = dlg.open_finish(res);
+                        if (file) {
+                            const path = file.get_path();
+                            let updatedImages = {};
+                            try { updatedImages = JSON.parse(settings.get_string('monitor-images')); } catch (e) { }
+                            updatedImages[i] = path;
+                            
+                            settings.set_string('monitor-images', JSON.stringify(updatedImages));
+                            staticImageRow.set_subtitle(path);
+                        }
+                    } catch (e) {
+                        // User dismissed intentionally
+                    }
                 });
             });
 
@@ -285,6 +314,7 @@ export default class WallshufflePrefs extends ExtensionPreferences {
                 valign: Gtk.Align.CENTER,
                 has_frame: false,
             });
+
             clearButton.connect('clicked', () => {
                 let updatedImages = {};
                 try { updatedImages = JSON.parse(settings.get_string('monitor-images')); } catch (e) { }

@@ -27,10 +27,8 @@ for file in \
     prefs.js \
     sources.js \
     rendering.js \
-    display_adapter.js \
     randomization.js \
     prefs_about.js \
-    gtk_adapter.js \
     wallshuffle.svg \
     schemas/org.gnome.shell.extensions.wallshuffle.gschema.xml
 do
@@ -72,9 +70,7 @@ echo "Compiling translations..."
 for po in po/*.po; do
     lang="$(basename "$po" .po)"
     locale_dir="$BUILD_DIR/locale/$lang/LC_MESSAGES"
-
     mkdir -p "$locale_dir"
-
     msgfmt \
         --check \
         --output-file="$locale_dir/wallshuffle.mo" \
@@ -88,15 +84,12 @@ cp \
     prefs.js \
     sources.js \
     rendering.js \
-    display_adapter.js \
     randomization.js \
     prefs_about.js \
-    gtk_adapter.js \
     wallshuffle.svg \
     "$BUILD_DIR/"
 
 cp -r schemas "$BUILD_DIR/"
-
 rm -f "$BUILD_DIR/schemas/gschemas.compiled"
 
 echo "Ensuring source translation files are not present in the build directory..."
@@ -107,32 +100,26 @@ if command -v gnome-extensions &> /dev/null; then
     PACK_ARGS=(
         "--extra-source=sources.js"
         "--extra-source=rendering.js"
-        "--extra-source=display_adapter.js"
         "--extra-source=randomization.js"
         "--extra-source=prefs_about.js"
-        "--extra-source=gtk_adapter.js"
         "--extra-source=wallshuffle.svg"
         "--extra-source=locale"
         "--extra-source=schemas"
     )
-
     gnome-extensions pack "$BUILD_DIR" "${PACK_ARGS[@]}" --force
     mv "$UUID.shell-extension.zip" "$PACKAGE_PATH"
 else
     echo "gnome-extensions CLI not found, falling back to zip..."
-
     if ! command -v zip &> /dev/null; then
         echo "Error: zip not found."
         exit 1
     fi
-
     (
         cd "$BUILD_DIR"
         zip -r "../$UUID.shell-extension.zip" . \
             -x '*.po' \
             -x 'po/*'
     )
-
     mv "$UUID.shell-extension.zip" "$PACKAGE_PATH"
 fi
 
@@ -154,16 +141,13 @@ fi
 echo "Installing extension locally..."
 rm -rf "$EXTENSION_DIR"
 mkdir -p "$EXTENSION_DIR"
-
 cp "$BUILD_DIR/metadata.json" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/extension.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/prefs.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/sources.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/rendering.js" "$EXTENSION_DIR/"
-cp "$BUILD_DIR/display_adapter.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/randomization.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/prefs_about.js" "$EXTENSION_DIR/"
-cp "$BUILD_DIR/gtk_adapter.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/wallshuffle.svg" "$EXTENSION_DIR/"
 cp -r "$BUILD_DIR/schemas" "$EXTENSION_DIR/"
 cp -r "$BUILD_DIR/locale" "$EXTENSION_DIR/"

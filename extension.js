@@ -4,12 +4,13 @@ import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
 import Soup from 'gi://Soup?version=3.0';
 import GdkPixbuf from 'gi://GdkPixbuf';
+
 import { SourceFactory } from './sources.js';
 import { RenderStrategyFactory } from './rendering.js';
-import { GNOMEDisplayAdapter } from './display_adapter.js';
 import { Randomizer } from './randomization.js';
 
 export default class WallshuffleExtension extends Extension {
+
     enable() {
         this._timeoutId = null;
         this._isUpdating = false;
@@ -111,10 +112,17 @@ export default class WallshuffleExtension extends Extension {
         this._isUpdating = true;
 
         try {
-            const displayAdapter = new GNOMEDisplayAdapter(global.display);
-            const monitors = displayAdapter.getMonitors();
-            const nMonitors = monitors.length;
+            const metaMonitors = global.display.get_monitors();
+            const monitors = [];
+            for (let i = 0; i < metaMonitors.length; i++) {
+                const geom = metaMonitors[i].get_geometry();
+                monitors.push({
+                    index: i,
+                    geom: { x: geom.x, y: geom.y, width: geom.width, height: geom.height }
+                });
+            }
             
+            const nMonitors = monitors.length;
             if (nMonitors === 0) return;
 
             const sourceStrategy = SourceFactory.getStrategy(
@@ -126,15 +134,14 @@ export default class WallshuffleExtension extends Extension {
             
             const useSameImage = this._settings.get_boolean('same-image-all-monitors');
             const requiredCount = (useSameImage && nMonitors > 1) ? 1 : nMonitors;
-
             const images = await sourceStrategy.getImages(requiredCount);
             
             // Safety check: Avoid writing to destroyed memory if extension disabled mid-download
             if (!this._settings || this._cancellable.is_cancelled()) return;
+
             if (images.length === 0) return;
 
             let globalBox = { minX: 0, minY: 0, maxX: 0, maxY: 0, w: 0, h: 0 };
-
             for (const mon of monitors) {
                 const geom = mon.geom;
                 if (geom.x < globalBox.minX) globalBox.minX = geom.x;
@@ -142,7 +149,6 @@ export default class WallshuffleExtension extends Extension {
                 if (geom.x + geom.width > globalBox.maxX) globalBox.maxX = geom.x + geom.width;
                 if (geom.y + geom.height > globalBox.maxY) globalBox.maxY = geom.y + geom.height;
             }
-
             globalBox.w = globalBox.maxX - globalBox.minX;
             globalBox.h = globalBox.maxY - globalBox.minY;
 
@@ -172,6 +178,7 @@ export default class WallshuffleExtension extends Extension {
 
                 const mode = perMonitorSettings[mon.index] || 'zoom';
                 const renderStrategy = RenderStrategyFactory.getStrategy(mode);
+
                 const monBox = {
                     w: mon.geom.width,
                     h: mon.geom.height,
@@ -189,7 +196,7 @@ export default class WallshuffleExtension extends Extension {
             const outDir = GLib.build_filenamev([GLib.get_user_cache_dir(), 'wallshuffle']);
             GLib.mkdir_with_parents(outDir, 0o755);
             const outPath = GLib.build_filenamev([outDir, 'spanned-bg.jpg']);
-
+            
             dest.savev(outPath, 'jpeg', ['quality'], ['100']);
 
             this._bgSettings.set_string('picture-options', 'spanned');
