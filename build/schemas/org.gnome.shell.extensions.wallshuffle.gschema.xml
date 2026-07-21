@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.wallshuffle" path="/org/gnome/shell/extensions/wallshuffle/" gettext-domain="wallshuffle">
+    <key name="randomize" type="b">
+      <default>true</default>
+      <summary>Shuffle wallpapers</summary>
+      <description>If true, wallpapers are shuffled and cycle on a timer. If false, wallpapers are statically assigned per monitor.</description>
+    </key>
+    <key name="same-image-all-monitors" type="b">
+      <default>false</default>
+      <summary>Use same image on all monitors</summary>
+      <description>If true, a single image is applied across all monitors instead of a unique image for each.</description>
+    </key>
+    <key name="interval" type="i">
+      <default>30</default>
+      <summary>Background change interval in minutes</summary>
+      <description>How often to change the background image per monitor (ignored if randomize is false).</description>
+    </key>
+    <key name="source-type" type="s">
+      <default>"folder"</default>
+      <summary>Wallpaper source type</summary>
+      <description>Choose between 'folder' (local) and 'online' (dynamic fetching).</description>
+    </key>
+    <key name="folder" type="s">
+      <default>""</default>
+      <summary>Wallpaper folder</summary>
+      <description>Path to the folder containing wallpaper images.</description>
+    </key>
+    <key name="monitor-settings" type="s">
+      <default>"{}"</default>
+      <summary>Per-Monitor Scaling Strategies</summary>
+      <description>JSON dictionary mapping monitor index to its scaling strategy.</description>
+    </key>
+    <key name="monitor-images" type="s">
+      <default>"{}"</default>
+      <summary>Explicit static images per monitor</summary>
+      <description>JSON dictionary mapping monitor index to a specific image file path.</description>
+    </key>
+  </schema>
+</schemalist>

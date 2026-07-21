@@ -1,0 +1,15 @@
+{
+  "uuid": "wallshuffle@cwittenberg",
+  "name": "Wallshuffle",
+  "description": "Set dynamic, per-monitor backgrounds using advanced rendering strategies. Shuffle them or map them statically. Multi-monitor wallpaper changer",
+  "shell-version": [
+    "46",
+    "47",
+    "48",
+    "49",
+    "50"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.wallshuffle",
+  "gettext-domain": "wallshuffle",
+  "url": "https://github.com/cwittenberg/wallshuffle"
+}
