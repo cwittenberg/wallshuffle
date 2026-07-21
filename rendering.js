@@ -89,7 +89,7 @@ class TileStrategy extends RenderStrategy {
             for (let y = 0; y < monBox.h; y += srcH) {
                 const tileW = Math.min(srcW, monBox.w - x);
                 const tileH = Math.min(srcH, monBox.h - y);
-                const tile = srcPixbuf.new_subpixbuf(0, 0, tileW, tileH);
+                const tile = srcPixbuf.new_subpixbuf(0, 0, tileW, tileH);      
                 this._safeCopyArea(tile, destPixbuf, monBox.targetX + x, monBox.targetY + y);
             }
         }
@@ -117,6 +117,17 @@ class SpanStrategy extends RenderStrategy {
     }
 }
 
+class StretchStrategy extends RenderStrategy {
+    render(destPixbuf, srcPixbuf, monBox, globalBox) {
+        // Scale ignoring aspect ratio to stretch and fit the entire multi-monitor globalBox perfectly
+        const scaled = srcPixbuf.scale_simple(globalBox.w, globalBox.h, GdkPixbuf.InterpType.BILINEAR);
+        
+        // Extract the specific monitor's portion from the global stretched image
+        const extracted = scaled.new_subpixbuf(monBox.targetX, monBox.targetY, monBox.w, monBox.h);
+        this._safeCopyArea(extracted, destPixbuf, monBox.targetX, monBox.targetY);
+    }
+}
+
 export class RenderStrategyFactory {
     static getStrategy(mode) {
         switch (mode) {
@@ -125,6 +136,7 @@ export class RenderStrategyFactory {
             case 'centre': return new CentreStrategy();
             case 'tile': return new TileStrategy();
             case 'span': return new SpanStrategy();
+            case 'stretch': return new StretchStrategy();
             case 'zoom':
             default: return new ZoomStrategy();
         }

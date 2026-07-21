@@ -1,7 +1,7 @@
 {
   "uuid": "wallshuffle@cwittenberg",
   "name": "Wallshuffle",
-  "description": "Set dynamic, per-monitor backgrounds using advanced rendering strategies. Shuffle them or map them statically. Multi-monitor wallpaper changer",
+  "description": "GNOME applies a single background across every display. This extension changes that. \n\nSet a unique wallpaper for each monitor, choose how every image is rendered, and automatically shuffle backgrounds on a configurable timer. Prefer a consistent setup? Assign wallpapers statically and keep each display exactly as you designed it. \n\nTurn your multi-monitor desktop into a dynamic, personalized workspace - display by display.",
   "shell-version": [
     "46",
     "47",
@@ -11,5 +11,8 @@
   ],
   "settings-schema": "org.gnome.shell.extensions.wallshuffle",
   "gettext-domain": "wallshuffle",
-  "url": "https://github.com/cwittenberg/wallshuffle"
+  "url": "https://github.com/cwittenberg/wallshuffle",
+  "donations": {
+    "kofi": "cwittenberg"
+  }
 }

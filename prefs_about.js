@@ -40,7 +40,6 @@ export function buildAboutPage(metadata, dir) {
 
     const imagePath = dir.get_child('wallshuffle.svg').get_path();
     const gfile = Gio.File.new_for_path(imagePath);
-
     const logoImg = new Gtk.Picture({
         file: gfile,
         can_shrink: true,
@@ -64,7 +63,6 @@ export function buildAboutPage(metadata, dir) {
     groupAboutInfo.add(wrap(rowAuthor));
 
     const groupLinks = new Adw.PreferencesGroup();
-
     const linkBox = new Gtk.Box({
         orientation: Gtk.Orientation.HORIZONTAL,
         spacing: 12,
@@ -74,13 +72,13 @@ export function buildAboutPage(metadata, dir) {
     });
 
     linkBox.append(createLinkButton(
-        _('Buy me a coffee 💙☕'),
+        _('Buy me a coffee'),
         'https://ko-fi.com/cwittenberg',
         'suggested-action' 
     ));
 
     linkBox.append(createLinkButton(
-        _('Report a Bug 🪲'),
+        _('Report a Bug'),
         'https://github.com/cwittenberg/wallshuffle/issues/new'
     ));
 
@@ -90,7 +88,6 @@ export function buildAboutPage(metadata, dir) {
     ));
 
     groupLinks.add(linkBox);
-
     pageAbout.add(groupLinks);
     pageAbout.add(groupAboutInfo);
 

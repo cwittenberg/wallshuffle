@@ -14,6 +14,13 @@ export default class WallshuffleExtension extends Extension {
     enable() {
         this._timeoutId = null;
         this._isUpdating = false;
+        this._queuedUpdate = false;
+        this._queuedReloadImages = false;
+        this._updateGeneration = 0;
+        this._updateCancellable = null;
+        this._currentImages = [];
+        this._settingsChangedId = null;
+        this._monitorsChangedId = null;
         
         // Tie state explicitly to the extension lifecycle
         this._cancellable = new Gio.Cancellable();
@@ -22,30 +29,24 @@ export default class WallshuffleExtension extends Extension {
         this._bgSettings = new Gio.Settings({ schema_id: 'org.gnome.desktop.background' });
         this._settings = this.getSettings();
 
-        this._settings.connectObject(
-            'changed::randomize', () => {
+        this._settingsChangedId = this._settings.connect('changed', (settings, key) => {
+            if (key === 'randomize' || key === 'interval') {
                 this._reschedule();
-                this._updateBackground();
-            },
-            'changed::same-image-all-monitors', () => this._updateBackground(),
-            'changed::interval', () => this._reschedule(),
-            'changed::source-type', () => this._updateBackground(),
-            'changed::folder', () => {
-                if (this._settings.get_string('source-type') === 'folder') {
-                    this._updateBackground();
-                }
-            },
-            'changed::monitor-settings', () => this._updateBackground(),
-            'changed::monitor-images', () => this._updateBackground(),
-            this
-        );
+            }
 
-        Main.layoutManager.connectObject(
-            'monitors-changed', () => this._updateBackground(),
-            this
-        );
+            const reloadImages = !['interval', 'same-image-all-monitors', 'monitor-settings'].includes(key);
+            const invalidateImages = ['randomize', 'source-type', 'folder', 'monitor-images'].includes(key);
+            this._requestBackgroundUpdate(reloadImages, invalidateImages);
+        });
 
-        this._updateBackground();
+        // GSettings only emits "changed" for keys read after the handler was connected.
+        for (const key of ['randomize', 'same-image-all-monitors', 'interval', 'source-type', 'folder', 'monitor-settings', 'monitor-images']) {
+            this._settings.get_value(key);
+        }
+
+        this._monitorsChangedId = Main.layoutManager.connect('monitors-changed', () => this._requestBackgroundUpdate());
+
+        this._requestBackgroundUpdate();
         this._reschedule();
     }
 
@@ -54,6 +55,10 @@ export default class WallshuffleExtension extends Extension {
         this._clearTimer();
         
         // 2. Abort any in-flight asynchronous operations (HTTP downloads, File writes)
+        if (this._updateCancellable) {
+            this._updateCancellable.cancel();
+            this._updateCancellable = null;
+        }
         if (this._cancellable) {
             this._cancellable.cancel();
             this._cancellable = null;
@@ -71,14 +76,22 @@ export default class WallshuffleExtension extends Extension {
             this._randomizer = null;
         }
 
+        this._currentImages = [];
+
         // 5. Clean up settings hooks
         if (this._settings) {
-            this._settings.disconnectObject(this);
+            if (this._settingsChangedId) {
+                this._settings.disconnect(this._settingsChangedId);
+                this._settingsChangedId = null;
+            }
+            if (this._monitorsChangedId) {
+                Main.layoutManager.disconnect(this._monitorsChangedId);
+                this._monitorsChangedId = null;
+            }
             this._settings = null;
         }
         
         this._bgSettings = null;
-        Main.layoutManager.disconnectObject(this);
     }
 
     _clearTimer() {
@@ -100,24 +113,57 @@ export default class WallshuffleExtension extends Extension {
                 GLib.PRIORITY_DEFAULT,
                 intervalMins * 60,
                 () => {
-                    this._updateBackground();
+                    this._requestBackgroundUpdate();
                     return GLib.SOURCE_CONTINUE;
                 }
             );
         }
     }
 
-    async _updateBackground() {
-        if (this._isUpdating) return;
+    _requestBackgroundUpdate(reloadImages = true, invalidateImages = false) {
+        if (!this._settings || !this._cancellable || this._cancellable.is_cancelled()) return;
+
+        this._updateGeneration++;
+
+        if (invalidateImages) {
+            this._currentImages = [];
+            this._randomizer.clear();
+        }
+
+        if (this._updateCancellable) {
+            this._updateCancellable.cancel();
+        }
+
+        if (this._isUpdating) {
+            this._queuedUpdate = true;
+            this._queuedReloadImages ||= reloadImages;
+            return;
+        }
+
+        this._updateBackground(reloadImages);
+    }
+
+    async _updateBackground(reloadImages = true) {
+        if (this._isUpdating) {
+            this._queuedUpdate = true;
+            this._queuedReloadImages ||= reloadImages;
+            return;
+        }
         this._isUpdating = true;
+        this._queuedUpdate = false;
+        this._queuedReloadImages = false;
+
+        const generation = this._updateGeneration;
+        const updateCancellable = new Gio.Cancellable();
+        this._updateCancellable = updateCancellable;
 
         try {
-            const metaMonitors = global.display.get_monitors();
+            const metaMonitors = Main.layoutManager.monitors;
             const monitors = [];
             for (let i = 0; i < metaMonitors.length; i++) {
-                const geom = metaMonitors[i].get_geometry();
+                const geom = metaMonitors[i];
                 monitors.push({
-                    index: i,
+                    index: geom.index !== undefined ? geom.index : i,
                     geom: { x: geom.x, y: geom.y, width: geom.width, height: geom.height }
                 });
             }
@@ -125,19 +171,31 @@ export default class WallshuffleExtension extends Extension {
             const nMonitors = monitors.length;
             if (nMonitors === 0) return;
 
-            const sourceStrategy = SourceFactory.getStrategy(
-                this._settings, 
-                this._randomizer, 
-                this._httpSession, 
-                this._cancellable
-            );
-            
             const useSameImage = this._settings.get_boolean('same-image-all-monitors');
             const requiredCount = (useSameImage && nMonitors > 1) ? 1 : nMonitors;
-            const images = await sourceStrategy.getImages(requiredCount);
-            
-            // Safety check: Avoid writing to destroyed memory if extension disabled mid-download
-            if (!this._settings || this._cancellable.is_cancelled()) return;
+            let images = [];
+
+            if (!reloadImages && this._currentImages.length > 0) {
+                images = useSameImage ? [this._currentImages[0]] : [...this._currentImages];
+            } else {
+                const sourceStrategy = SourceFactory.getStrategy(
+                    this._settings, 
+                    this._randomizer, 
+                    this._httpSession, 
+                    updateCancellable
+                );
+                
+                images = await sourceStrategy.getImages(requiredCount);
+                
+                // Safety check: Avoid writing to destroyed memory if extension disabled mid-download
+                if (!this._settings || !this._cancellable || this._cancellable.is_cancelled() || updateCancellable.is_cancelled() || generation !== this._updateGeneration) return;
+
+                if (images.length > 0) {
+                    this._currentImages = [...images];
+                }
+            }
+
+            if (!this._settings || !this._cancellable || this._cancellable.is_cancelled() || updateCancellable.is_cancelled() || generation !== this._updateGeneration) return;
 
             if (images.length === 0) return;
 
@@ -195,13 +253,32 @@ export default class WallshuffleExtension extends Extension {
 
             const outDir = GLib.build_filenamev([GLib.get_user_cache_dir(), 'wallshuffle']);
             GLib.mkdir_with_parents(outDir, 0o755);
-            const outPath = GLib.build_filenamev([outDir, 'spanned-bg.jpg']);
+            
+            const timestamp = Date.now();
+            const outFilename = `spanned-bg-${timestamp}.jpg`;
+            const outPath = GLib.build_filenamev([outDir, outFilename]);
             
             dest.savev(outPath, 'jpeg', ['quality'], ['100']);
 
+            if (!this._bgSettings || updateCancellable.is_cancelled() || generation !== this._updateGeneration) return;
             this._bgSettings.set_string('picture-options', 'spanned');
             this._bgSettings.set_string('picture-uri', `file://${outPath}`);
             this._bgSettings.set_string('picture-uri-dark', `file://${outPath}`);
+
+            // Clean up old cached backgrounds to prevent disk bloat
+            try {
+                const dir = Gio.File.new_for_path(outDir);
+                const enumerator = dir.enumerate_children('standard::name', Gio.FileQueryInfoFlags.NONE, null);
+                let info;
+                while ((info = enumerator.next_file(null)) !== null) {
+                    const name = info.get_name();
+                    if (name.startsWith('spanned-bg-') && name !== outFilename) {
+                        dir.get_child(name).delete(null);
+                    }
+                }
+            } catch (e) {
+                // Ignore cleanup errors
+            }
 
         } catch (e) {
             // Do not log errors if the crash was simply caused by the user disabling the extension
@@ -210,7 +287,16 @@ export default class WallshuffleExtension extends Extension {
             }
             console.error(`Wallshuffle: Fatal error during update - ${e.message}`);
         } finally {
+            if (this._updateCancellable === updateCancellable) {
+                this._updateCancellable = null;
+            }
             this._isUpdating = false;
+            if (this._queuedUpdate && this._settings && this._cancellable && !this._cancellable.is_cancelled()) {
+                const queuedReloadImages = this._queuedReloadImages;
+                this._queuedUpdate = false;
+                this._queuedReloadImages = false;
+                this._updateBackground(queuedReloadImages);
+            }
         }
     }
 }

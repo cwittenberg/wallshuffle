@@ -3,17 +3,18 @@ import Gio from 'gi://Gio';
 import Gtk from 'gi://Gtk';
 import Gdk from 'gi://Gdk';
 import GLib from 'gi://GLib';
-
 import { ExtensionPreferences, gettext as _ } from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 import { buildAboutPage } from './prefs_about.js';
 
 export default class WallshufflePrefs extends ExtensionPreferences {
+
     fillPreferencesWindow(window) {
         const settings = this.getSettings();
         
         const display = Gdk.Display.get_default();
         const monitors = [];
         const listModel = display.get_monitors();
+
         for (let i = 0; i < listModel.get_n_items(); i++) {
             monitors.push(listModel.get_item(i));
         }
@@ -86,7 +87,6 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         const minutesToIndex = (mins) => {
             if (mins <= steps[0]) return 0;
             if (mins >= steps[steps.length - 1]) return steps.length - 1;
-
             for (let i = 0; i < steps.length - 1; i++) {
                 if (mins >= steps[i] && mins <= steps[i + 1]) {
                     const range = steps[i + 1] - steps[i];
@@ -100,12 +100,10 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         const indexToMinutes = (idx) => {
             if (idx <= 0) return steps[0];
             if (idx >= steps.length - 1) return steps[steps.length - 1];
-
             const lower = Math.floor(idx);
             const upper = Math.ceil(idx);
 
             if (lower === upper) return steps[lower];
-
             const fraction = idx - lower;
             return Math.round(steps[lower] + fraction * (steps[upper] - steps[lower]));
         };
@@ -175,7 +173,6 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         let selectedIndex = 0;
         if (currentSource === 'online' || currentSource === 'online-picsum') selectedIndex = 1;
         if (currentSource === 'online-loremflickr') selectedIndex = 2;
-
         sourceRow.set_selected(selectedIndex);
         globalGroup.add(sourceRow);
 
@@ -208,7 +205,6 @@ export default class WallshufflePrefs extends ExtensionPreferences {
                 }
             });
         });
-
         folderRow.add_suffix(folderButton);
         globalGroup.add(folderRow);
 
@@ -243,7 +239,7 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         } catch (e) { currentImageConfig = {}; }
 
         // Keep raw modes for logic, translate for UI display
-        const modes = ['Zoom', 'Fit', 'Centre', 'Fill', 'Tile', 'Span'];
+        const modes = ['Zoom', 'Fit', 'Centre', 'Fill', 'Tile', 'Span', 'Stretch'];
         const translatedModes = modes.map(m => _(m));
         
         for (let i = 0; i < nMonitors; i++) {
@@ -273,7 +269,6 @@ export default class WallshufflePrefs extends ExtensionPreferences {
                 updatedConfig[i] = selectedMode;
                 settings.set_string('monitor-settings', JSON.stringify(updatedConfig));
             });
-
             expanderRow.add_row(strategyCombo);
 
             // 2. Specific Static Image ActionRow
@@ -340,6 +335,7 @@ export default class WallshufflePrefs extends ExtensionPreferences {
 
             sourceRow.connect('notify::selected', updateVisibility);
             randomizeRow.connect('notify::active', updateVisibility);
+
             updateVisibility(); // Set initial state
         }
 
