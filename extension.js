@@ -14,11 +14,8 @@ export default class WallshuffleExtension extends Extension {
         this._isUpdating = false;
         this._queuedUpdate = false;
         this._queuedReloadImages = false;
-        this._updateGeneration = 0;
         this._updateCancellable = null;
         this._currentImages = [];
-        this._settingsChangedId = null;
-        this._monitorsChangedId = null;
         
         // Tie state explicitly to the extension lifecycle
         this._cancellable = new Gio.Cancellable();
@@ -27,7 +24,7 @@ export default class WallshuffleExtension extends Extension {
         this._bgSettings = new Gio.Settings({ schema_id: 'org.gnome.desktop.background' });
         this._settings = this.getSettings();
 
-        this._settingsChangedId = this._settings.connect('changed', (settings, key) => {
+        this._settings.connectObject('changed', (settings, key) => {
             if (key === 'randomize' || key === 'interval') {
                 this._reschedule();
             }
@@ -36,14 +33,14 @@ export default class WallshuffleExtension extends Extension {
             const invalidateImages = ['randomize', 'source-type', 'folder', 'monitor-images'].includes(key);
 
             this._requestBackgroundUpdate(reloadImages, invalidateImages);
-        });
+        }, this);
 
         // GSettings only emits "changed" for keys read after the handler was connected.
         for (const key of ['randomize', 'same-image-all-monitors', 'interval', 'source-type', 'folder', 'monitor-settings', 'monitor-images']) {
             this._settings.get_value(key);
         }
 
-        this._monitorsChangedId = Main.layoutManager.connect('monitors-changed', () => this._requestBackgroundUpdate());
+        Main.layoutManager.connectObject('monitors-changed', () => this._requestBackgroundUpdate(), this);
 
         this._requestBackgroundUpdate();
         this._reschedule();
@@ -78,18 +75,13 @@ export default class WallshuffleExtension extends Extension {
 
         this._currentImages = [];
 
-        // 5. Clean up settings hooks
+        // 5. Clean up settings hooks using disconnectObject
         if (this._settings) {
-            if (this._settingsChangedId) {
-                this._settings.disconnect(this._settingsChangedId);
-                this._settingsChangedId = null;
-            }
-            if (this._monitorsChangedId) {
-                Main.layoutManager.disconnect(this._monitorsChangedId);
-                this._monitorsChangedId = null;
-            }
+            this._settings.disconnectObject(this);
             this._settings = null;
         }
+        
+        Main.layoutManager.disconnectObject(this);
         
         this._bgSettings = null;
     }
@@ -123,8 +115,6 @@ export default class WallshuffleExtension extends Extension {
     _requestBackgroundUpdate(reloadImages = true, invalidateImages = false) {
         if (!this._settings || !this._cancellable || this._cancellable.is_cancelled()) return;
 
-        this._updateGeneration++;
-
         if (invalidateImages) {
             this._currentImages = [];
             this._randomizer.clear();
@@ -154,7 +144,6 @@ export default class WallshuffleExtension extends Extension {
         this._queuedUpdate = false;
         this._queuedReloadImages = false;
 
-        const generation = this._updateGeneration;
         const updateCancellable = new Gio.Cancellable();
         this._updateCancellable = updateCancellable;
 
@@ -199,17 +188,14 @@ export default class WallshuffleExtension extends Extension {
                     updateCancellable
                 );
                 
+                // If the extension is disabled or updated during fetching, the Cancellable 
+                // intercepts it, throws an IOErrorEnum.CANCELLED, and jumps straight to the catch block
                 images = await sourceStrategy.getImages(requiredCount, monitors, useSameImage, globalBox);
                 
-                // Safety check: Avoid writing to destroyed memory if extension disabled mid-download
-                if (!this._settings || !this._cancellable || this._cancellable.is_cancelled() || updateCancellable.is_cancelled() || generation !== this._updateGeneration) return;
-
                 if (images.length > 0) {
                     this._currentImages = [...images];
                 }
             }
-
-            if (!this._settings || !this._cancellable || this._cancellable.is_cancelled() || updateCancellable.is_cancelled() || generation !== this._updateGeneration) return;
 
             if (images.length === 0) return;
 
@@ -261,11 +247,12 @@ export default class WallshuffleExtension extends Extension {
             
             dest.savev(outPath, 'jpeg', ['quality'], ['100']);
 
-            if (!this._bgSettings || updateCancellable.is_cancelled() || generation !== this._updateGeneration) return;
-
-            this._bgSettings.set_string('picture-options', 'spanned');
-            this._bgSettings.set_string('picture-uri', `file://${outPath}`);
-            this._bgSettings.set_string('picture-uri-dark', `file://${outPath}`);
+            // Only update GSettings if we still confidently exist 
+            if (this._bgSettings) {
+                this._bgSettings.set_string('picture-options', 'spanned');
+                this._bgSettings.set_string('picture-uri', `file://${outPath}`);
+                this._bgSettings.set_string('picture-uri-dark', `file://${outPath}`);
+            }
 
             // Clean up old cached backgrounds to prevent disk bloat
             try {
@@ -283,7 +270,7 @@ export default class WallshuffleExtension extends Extension {
             }
 
         } catch (e) {
-            // Do not log errors if the crash was simply caused by the user disabling the extension
+            // Silently swallow expected cancellations instead of throwing stacktraces to journalctl
             if (e.matches && e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                 return;
             }
