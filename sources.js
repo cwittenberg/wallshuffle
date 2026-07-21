@@ -3,7 +3,7 @@ import Gio from 'gi://Gio';
 import Soup from 'gi://Soup';
 
 class SourceStrategy {
-    async getImages(requiredCount) {
+    async getImages(requiredCount, monitors = [], useSameImage = false, globalBox = null) {
         throw new Error("SourceStrategy.getImages() must be implemented by subclasses");
     }
 }
@@ -15,7 +15,7 @@ class FolderSourceStrategy extends SourceStrategy {
         this._randomizer = randomizer;
     }
 
-    async getImages(requiredCount) {
+    async getImages(requiredCount, monitors = [], useSameImage = false, globalBox = null) {
         let folderPath = this._settings.get_string('folder');
         
         // Default to ~/Pictures if empty
@@ -88,7 +88,7 @@ class OnlineSourceStrategy extends SourceStrategy {
         this._cancellable = cancellable;
     }
 
-    async getImages(requiredCount) {
+    async getImages(requiredCount, monitors = [], useSameImage = false, globalBox = null) {
         let paths = [];
         const cacheDir = GLib.build_filenamev([GLib.get_user_cache_dir(), 'wallshuffle', this._provider]);
         GLib.mkdir_with_parents(cacheDir, 0o755);
@@ -98,15 +98,46 @@ class OnlineSourceStrategy extends SourceStrategy {
         for (let i = 0; i < requiredCount; i++) {
             let url = '';
             
+            // Determine dimensions for this image based on monitor setup
+            let reqW = 1920;
+            let reqH = 1080;
+
+            if (useSameImage && globalBox) {
+                reqW = globalBox.w;
+                reqH = globalBox.h;
+            } else if (monitors && monitors[i] && monitors[i].geom) {
+                reqW = monitors[i].geom.width;
+                reqH = monitors[i].geom.height;
+            }
+
+            // Safety limit for URL resolution limits (e.g., servers rejecting huge dimensions)
+            const MAX_DIM = 4000;
+            if (reqW > MAX_DIM || reqH > MAX_DIM) {
+                const scale = Math.min(MAX_DIM / reqW, MAX_DIM / reqH);
+                reqW = Math.max(1, Math.round(reqW * scale));
+                reqH = Math.max(1, Math.round(reqH * scale));
+            } else {
+                reqW = Math.max(1, reqW);
+                reqH = Math.max(1, reqH);
+            }
+
             // Branch endpoint construction based on chosen provider
             if (this._provider === 'loremflickr') {
                 url = randomize
-                    ? `https://loremflickr.com/1920/1080/landscape,nature?random=${Math.random()}`
-                    : `https://loremflickr.com/1920/1080/landscape,nature?lock=${i}`;
+                    ? `https://loremflickr.com/${reqW}/${reqH}/landscape,nature?random=${Math.random()}`
+                    : `https://loremflickr.com/${reqW}/${reqH}/landscape,nature?lock=${i}`;
+            } else if (this._provider === 'placedog') {
+                url = randomize
+                    ? `https://placedog.net/${reqW}/${reqH}?random=${Math.random()}`
+                    : `https://placedog.net/${reqW}/${reqH}?id=${i + 1}`;
+            } else if (this._provider === 'placebear') {
+                url = randomize
+                    ? `https://placebear.com/${reqW}/${reqH}?random=${Math.random()}`
+                    : `https://placebear.com/${reqW}/${reqH}`;
             } else { 
                 url = randomize 
-                    ? `https://picsum.photos/1920/1080?random=${Math.random()}`
-                    : `https://picsum.photos/seed/wallshuffle_monitor_${i}/1920/1080`;
+                    ? `https://picsum.photos/${reqW}/${reqH}?random=${Math.random()}`
+                    : `https://picsum.photos/seed/wallshuffle_monitor_${i}/${reqW}/${reqH}`;
             }
             
             const msg = Soup.Message.new('GET', url);
@@ -147,6 +178,7 @@ class OnlineSourceStrategy extends SourceStrategy {
                 });
 
                 paths.push(outPath);
+
             } catch (e) {
                 // If it was cancelled by lifecycle cleanup, let the error propagate up silently
                 if (e.matches && e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
@@ -168,6 +200,10 @@ export class SourceFactory {
             return new OnlineSourceStrategy(settings, 'picsum', randomizer, session, cancellable);
         } else if (type === 'online-loremflickr') {
             return new OnlineSourceStrategy(settings, 'loremflickr', randomizer, session, cancellable);
+        } else if (type === 'online-placedog') {
+            return new OnlineSourceStrategy(settings, 'placedog', randomizer, session, cancellable);
+        } else if (type === 'online-placebear') {
+            return new OnlineSourceStrategy(settings, 'placebear', randomizer, session, cancellable);
         }
         
         return new FolderSourceStrategy(settings, randomizer);

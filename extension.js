@@ -4,13 +4,11 @@ import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
 import Soup from 'gi://Soup';
 import GdkPixbuf from 'gi://GdkPixbuf';
-
 import { SourceFactory } from './sources.js';
 import { RenderStrategyFactory } from './rendering.js';
 import { Randomizer } from './randomization.js';
 
 export default class WallshuffleExtension extends Extension {
-
     enable() {
         this._timeoutId = null;
         this._isUpdating = false;
@@ -36,6 +34,7 @@ export default class WallshuffleExtension extends Extension {
 
             const reloadImages = !['interval', 'same-image-all-monitors', 'monitor-settings'].includes(key);
             const invalidateImages = ['randomize', 'source-type', 'folder', 'monitor-images'].includes(key);
+
             this._requestBackgroundUpdate(reloadImages, invalidateImages);
         });
 
@@ -59,6 +58,7 @@ export default class WallshuffleExtension extends Extension {
             this._updateCancellable.cancel();
             this._updateCancellable = null;
         }
+
         if (this._cancellable) {
             this._cancellable.cancel();
             this._cancellable = null;
@@ -149,6 +149,7 @@ export default class WallshuffleExtension extends Extension {
             this._queuedReloadImages ||= reloadImages;
             return;
         }
+
         this._isUpdating = true;
         this._queuedUpdate = false;
         this._queuedReloadImages = false;
@@ -171,34 +172,6 @@ export default class WallshuffleExtension extends Extension {
             const nMonitors = monitors.length;
             if (nMonitors === 0) return;
 
-            const useSameImage = this._settings.get_boolean('same-image-all-monitors');
-            const requiredCount = (useSameImage && nMonitors > 1) ? 1 : nMonitors;
-            let images = [];
-
-            if (!reloadImages && this._currentImages.length > 0) {
-                images = useSameImage ? [this._currentImages[0]] : [...this._currentImages];
-            } else {
-                const sourceStrategy = SourceFactory.getStrategy(
-                    this._settings, 
-                    this._randomizer, 
-                    this._httpSession, 
-                    updateCancellable
-                );
-                
-                images = await sourceStrategy.getImages(requiredCount);
-                
-                // Safety check: Avoid writing to destroyed memory if extension disabled mid-download
-                if (!this._settings || !this._cancellable || this._cancellable.is_cancelled() || updateCancellable.is_cancelled() || generation !== this._updateGeneration) return;
-
-                if (images.length > 0) {
-                    this._currentImages = [...images];
-                }
-            }
-
-            if (!this._settings || !this._cancellable || this._cancellable.is_cancelled() || updateCancellable.is_cancelled() || generation !== this._updateGeneration) return;
-
-            if (images.length === 0) return;
-
             let globalBox = { minX: 0, minY: 0, maxX: 0, maxY: 0, w: 0, h: 0 };
             for (const mon of monitors) {
                 const geom = mon.geom;
@@ -211,6 +184,34 @@ export default class WallshuffleExtension extends Extension {
             globalBox.h = globalBox.maxY - globalBox.minY;
 
             if (globalBox.w <= 0 || globalBox.h <= 0) return;
+
+            const useSameImage = this._settings.get_boolean('same-image-all-monitors');
+            const requiredCount = (useSameImage && nMonitors > 1) ? 1 : nMonitors;
+            let images = [];
+            
+            if (!reloadImages && this._currentImages.length > 0) {
+                images = useSameImage ? [this._currentImages[0]] : [...this._currentImages];
+            } else {
+                const sourceStrategy = SourceFactory.getStrategy(
+                    this._settings, 
+                    this._randomizer, 
+                    this._httpSession, 
+                    updateCancellable
+                );
+                
+                images = await sourceStrategy.getImages(requiredCount, monitors, useSameImage, globalBox);
+                
+                // Safety check: Avoid writing to destroyed memory if extension disabled mid-download
+                if (!this._settings || !this._cancellable || this._cancellable.is_cancelled() || updateCancellable.is_cancelled() || generation !== this._updateGeneration) return;
+
+                if (images.length > 0) {
+                    this._currentImages = [...images];
+                }
+            }
+
+            if (!this._settings || !this._cancellable || this._cancellable.is_cancelled() || updateCancellable.is_cancelled() || generation !== this._updateGeneration) return;
+
+            if (images.length === 0) return;
 
             const dest = GdkPixbuf.Pixbuf.new(GdkPixbuf.Colorspace.RGB, false, 8, globalBox.w, globalBox.h);
             dest.fill(0x000000FF);
@@ -225,8 +226,8 @@ export default class WallshuffleExtension extends Extension {
             for (let i = 0; i < monitors.length; i++) {
                 const mon = monitors[i];
                 const imgPath = images[i % images.length];
-
                 let src;
+
                 try {
                     src = GdkPixbuf.Pixbuf.new_from_file(imgPath);
                 } catch (e) {
@@ -261,6 +262,7 @@ export default class WallshuffleExtension extends Extension {
             dest.savev(outPath, 'jpeg', ['quality'], ['100']);
 
             if (!this._bgSettings || updateCancellable.is_cancelled() || generation !== this._updateGeneration) return;
+
             this._bgSettings.set_string('picture-options', 'spanned');
             this._bgSettings.set_string('picture-uri', `file://${outPath}`);
             this._bgSettings.set_string('picture-uri-dark', `file://${outPath}`);
@@ -291,6 +293,7 @@ export default class WallshuffleExtension extends Extension {
                 this._updateCancellable = null;
             }
             this._isUpdating = false;
+
             if (this._queuedUpdate && this._settings && this._cancellable && !this._cancellable.is_cancelled()) {
                 const queuedReloadImages = this._queuedReloadImages;
                 this._queuedUpdate = false;

@@ -4,17 +4,16 @@ import Gtk from 'gi://Gtk';
 import Gdk from 'gi://Gdk';
 import GLib from 'gi://GLib';
 import { ExtensionPreferences, gettext as _ } from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
+
 import { buildAboutPage } from './prefs_about.js';
 
 export default class WallshufflePrefs extends ExtensionPreferences {
-
     fillPreferencesWindow(window) {
         const settings = this.getSettings();
         
         const display = Gdk.Display.get_default();
         const monitors = [];
         const listModel = display.get_monitors();
-
         for (let i = 0; i < listModel.get_n_items(); i++) {
             monitors.push(listModel.get_item(i));
         }
@@ -87,6 +86,7 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         const minutesToIndex = (mins) => {
             if (mins <= steps[0]) return 0;
             if (mins >= steps[steps.length - 1]) return steps.length - 1;
+
             for (let i = 0; i < steps.length - 1; i++) {
                 if (mins >= steps[i] && mins <= steps[i + 1]) {
                     const range = steps[i + 1] - steps[i];
@@ -100,10 +100,12 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         const indexToMinutes = (idx) => {
             if (idx <= 0) return steps[0];
             if (idx >= steps.length - 1) return steps[steps.length - 1];
+
             const lower = Math.floor(idx);
             const upper = Math.ceil(idx);
 
             if (lower === upper) return steps[lower];
+
             const fraction = idx - lower;
             return Math.round(steps[lower] + fraction * (steps[upper] - steps[lower]));
         };
@@ -159,8 +161,10 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         // Source Type Selection
         const sourceModel = Gtk.StringList.new([
             _('Local Folder'), 
-            _('Online Random (Picsum)'), 
-            _('Online Random (LoremFlickr)')
+            _('Picsum'), 
+            _('LoremFlickr'),
+            _('PlaceDog'),
+            _('PlaceBear')
         ]);
 
         const sourceRow = new Adw.ComboRow({
@@ -172,12 +176,16 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         const currentSource = settings.get_string('source-type');
         let selectedIndex = 0;
         if (currentSource === 'online' || currentSource === 'online-picsum') selectedIndex = 1;
-        if (currentSource === 'online-loremflickr') selectedIndex = 2;
+        else if (currentSource === 'online-loremflickr') selectedIndex = 2;
+        else if (currentSource === 'online-placedog') selectedIndex = 3;
+        else if (currentSource === 'online-placebear') selectedIndex = 4;
         sourceRow.set_selected(selectedIndex);
+
         globalGroup.add(sourceRow);
 
         // Folder Path Selection
         const defaultPictures = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_PICTURES);
+
         const folderRow = new Adw.ActionRow({
             title: _('Wallpaper Folder'),
             subtitle: settings.get_string('folder') || defaultPictures || _('Select a directory...'),
@@ -205,6 +213,7 @@ export default class WallshufflePrefs extends ExtensionPreferences {
                 }
             });
         });
+
         folderRow.add_suffix(folderButton);
         globalGroup.add(folderRow);
 
@@ -213,6 +222,8 @@ export default class WallshufflePrefs extends ExtensionPreferences {
             let newType = 'folder';
             if (selected === 1) newType = 'online-picsum';
             if (selected === 2) newType = 'online-loremflickr';
+            if (selected === 3) newType = 'online-placedog';
+            if (selected === 4) newType = 'online-placebear';
             
             settings.set_string('source-type', newType);
             folderRow.set_sensitive(selected === 0);
@@ -269,6 +280,7 @@ export default class WallshufflePrefs extends ExtensionPreferences {
                 updatedConfig[i] = selectedMode;
                 settings.set_string('monitor-settings', JSON.stringify(updatedConfig));
             });
+
             expanderRow.add_row(strategyCombo);
 
             // 2. Specific Static Image ActionRow
@@ -321,9 +333,10 @@ export default class WallshufflePrefs extends ExtensionPreferences {
             const buttonBox = new Gtk.Box({ spacing: 6 });
             buttonBox.append(fileButton);
             buttonBox.append(clearButton);
-            staticImageRow.add_suffix(buttonBox);
 
+            staticImageRow.add_suffix(buttonBox);
             expanderRow.add_row(staticImageRow);
+
             monitorGroup.add(expanderRow);
 
             // Dynamic visibility logic to keep the UI pristine
@@ -335,7 +348,6 @@ export default class WallshufflePrefs extends ExtensionPreferences {
 
             sourceRow.connect('notify::selected', updateVisibility);
             randomizeRow.connect('notify::active', updateVisibility);
-
             updateVisibility(); // Set initial state
         }
 
