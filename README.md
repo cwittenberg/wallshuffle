@@ -13,6 +13,9 @@ With this extension you can set  dynamic, per-monitor backgrounds using advanced
 * **Unified Display:** Optionally apply the same background to all displays in a multi-monitor setup.
 * **Localization Support:** Translated into multiple languages including Spanish, French, German, Japanese, and more.
 
+## Demo
+<img width="320" height="568" alt="output_iphone_1 875x" src="https://github.com/user-attachments/assets/f64dc0ab-e48f-4b22-b4e1-bccb765d53ab" />
+
 ## Compatibility
 Supported GNOME Shell versions: 46, 47, 48, 49, 50
 
