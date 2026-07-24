@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: Polish\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -105,11 +105,11 @@ msgstr "Lokalnie / Rozwój"
 msgid "Author"
 msgstr "Autor"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "Kup mi kawę 💙☕"
+msgid "Buy me a coffee"
+msgstr "Kup mi kawę"
 
-msgid "Report a Bug 🪲"
-msgstr "Zgłoś błąd 🪲"
+msgid "Report a Bug"
+msgstr "Zgłoś błąd"
 
 msgid "Request a Feature"
 msgstr "Poproś o funkcję"
@@ -131,3 +131,87 @@ msgstr "Kafelki"
 
 msgid "Span"
 msgstr "Rozciągnij"
+
+msgid "Make Every Workspace Your Own"
+msgstr "Spersonalizuj każdy obszar roboczy"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "Używaj różnych tapet dla obszarów roboczych nawet na jednym monitorze. Włącz to w zakładce Obszary robocze."
+
+msgid "Workspaces"
+msgstr "Obszary robocze"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "Wizualna tożsamość dla obszarów roboczych"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "Użyj tapet, aby obszary robocze były natychmiast rozpoznawalne."
+
+msgid "Works with Any Monitor Setup"
+msgstr "Działa z każdą konfiguracją monitorów"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, whether you use one monitor or several."
+msgstr "Nadaj każdemu obszarowi jego własną tapetę niezależnie od liczby monitorów."
+
+msgid "Override Only What Should Be Different"
+msgstr "Zmieniaj tylko to, co konieczne"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "Każdy obszar zaczyna od głównych ustawień. Zmieniaj tapetę tylko tam, gdzie to potrzebne."
+
+msgid "Workspace Specificity"
+msgstr "Specyfika obszarów roboczych"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "Włącz tła dla obszarów roboczych i wybierz ile konfiguracji wyświetlić."
+
+msgid "Enable Workspace Specificity"
+msgstr "Włącz specyfikę obszarów roboczych"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "Gdy wyłączone, Wallshuffle używa głównej konfiguracji dla monitorów."
+
+msgid "Brief Dark Transition When Switching"
+msgstr "Krótkie przyciemnienie przy zmianie"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "Ekran może na moment pociemnieć podczas ładowania następnego tła."
+
+msgid "Workspace Configuration Slots"
+msgstr "Sloty konfiguracji obszarów"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "Dopasuj do liczby używanych obszarów roboczych."
+
+msgid "Per-Workspace Overrides"
+msgstr "Nadpisania dla obszarów roboczych"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "Otwórz obszar poniżej, aby nadpisać ustawienia dla każdego monitora."
+
+msgid "Use Monitor Default"
+msgstr "Użyj domyślnego dla monitora"
+
+msgid "Workspace %d"
+msgstr "Obszar roboczy %d"
+
+msgid "1 connected display"
+msgstr "1 podłączony ekran"
+
+msgid "%d connected displays"
+msgstr "%d podłączonych ekranów"
+
+msgid "%s Scaling Strategy"
+msgstr "Strategia skalowania %s"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   Domyślnie monitor: %s"
+
+msgid "%s Specific Static Image"
+msgstr "Statyczny obraz dla %s"
+
+msgid "Monitor Default: %s"
+msgstr "Domyślnie monitor: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "Wybierz obraz dla obszaru %d, %s"

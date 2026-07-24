@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: Arabic\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -17,13 +17,13 @@ msgid "Global Preferences"
 msgstr "التفضيلات العامة"
 
 msgid "Configure behavior, timing, and sources."
-msgstr "تكوين السلوك والتوقيت والمصادر."
+msgstr "تهيئة السلوك، التوقيت، والمصادر."
 
 msgid "Randomize / Shuffle"
 msgstr "عشوائي / خلط"
 
 msgid "Turn off to assign static wallpapers sequentially per monitor."
-msgstr "قم بإيقاف التشغيل لتعيين خلفيات ثابتة بالتسلسل لكل شاشة."
+msgstr "أوقف التفعيل لتعيين خلفيات ثابتة بالتسلسل لكل شاشة."
 
 msgid "Same Image on All Monitors"
 msgstr "نفس الصورة على جميع الشاشات"
@@ -32,10 +32,10 @@ msgid "Apply one background to all displays. Requires a multi-monitor setup."
 msgstr "تطبيق خلفية واحدة على جميع الشاشات. يتطلب إعداد شاشات متعددة."
 
 msgid "Change Interval (Minutes)"
-msgstr "فترة التغيير (دقائق)"
+msgstr "فترة التغيير (بالدقائق)"
 
 msgid "Frequency of background cycling."
-msgstr "تردد دورة الخلفية."
+msgstr "تواتر تدوير الخلفيات."
 
 msgid "Wallpaper Source"
 msgstr "مصدر الخلفيات"
@@ -47,10 +47,10 @@ msgid "Local Folder"
 msgstr "مجلد محلي"
 
 msgid "Online Random (Picsum)"
-msgstr "عشوائي عبر الإنترنت (Picsum)"
+msgstr "عشوائي من الإنترنت (Picsum)"
 
 msgid "Online Random (LoremFlickr)"
-msgstr "عشوائي عبر الإنترنت (LoremFlickr)"
+msgstr "عشوائي من الإنترنت (LoremFlickr)"
 
 msgid "Wallpaper Folder"
 msgstr "مجلد الخلفيات"
@@ -59,22 +59,22 @@ msgid "Select a directory..."
 msgstr "اختر مجلداً..."
 
 msgid "Select Wallpaper Source Folder"
-msgstr "تحديد مجلد مصدر الخلفيات"
+msgstr "اختر مجلد مصدر الخلفيات"
 
 msgid "Per-Monitor Configuration"
 msgstr "تكوين لكل شاشة"
 
 msgid "Assign individual scaling strategies and static images to connected displays."
-msgstr "تعيين استراتيجيات قياس فردية وصور ثابتة للشاشات المتصلة."
+msgstr "تعيين استراتيجيات تحجيم وصور ثابتة فردية للشاشات المتصلة."
 
 msgid "Unknown Display"
 msgstr "شاشة غير معروفة"
 
 msgid "Display %d"
-msgstr "شاشة %d"
+msgstr "الشاشة %d"
 
 msgid "Scaling Strategy"
-msgstr "استراتيجية القياس"
+msgstr "استراتيجية التحجيم"
 
 msgid "Specific Static Image"
 msgstr "صورة ثابتة محددة"
@@ -83,7 +83,7 @@ msgid "Default (Alphabetical from folder)"
 msgstr "الافتراضي (أبجديًا من المجلد)"
 
 msgid "Select Static Image for %s"
-msgstr "تحديد صورة ثابتة لـ %s"
+msgstr "اختر صورة ثابتة لـ %s"
 
 msgid "About"
 msgstr "حول"
@@ -106,14 +106,14 @@ msgstr "محلي / تطوير"
 msgid "Author"
 msgstr "المؤلف"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "اشتري لي قهوة 💙☕"
+msgid "Buy me a coffee"
+msgstr "اشترِ لي قهوة"
 
-msgid "Report a Bug 🪲"
-msgstr "الإبلاغ عن خطأ 🪲"
+msgid "Report a Bug"
+msgstr "أبلغ عن خطأ"
 
 msgid "Request a Feature"
-msgstr "طلب ميزة"
+msgstr "اطلب ميزة"
 
 msgid "Zoom"
 msgstr "تكبير"
@@ -122,7 +122,7 @@ msgid "Fit"
 msgstr "احتواء"
 
 msgid "Centre"
-msgstr "مركز"
+msgstr "توسيط"
 
 msgid "Fill"
 msgstr "ملء"
@@ -132,3 +132,87 @@ msgstr "تجانب"
 
 msgid "Span"
 msgstr "امتداد"
+
+msgid "Make Every Workspace Your Own"
+msgstr "اجعل كل مساحة عمل خاصة بك"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "استخدم خلفيات وأنماط مختلفة لكل مساحة عمل. قم بتمكين الخصوصية من علامة تبويب مساحات العمل."
+
+msgid "Workspaces"
+msgstr "مساحات العمل"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "هوية بصرية لكل مساحة عمل"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "استخدم الخلفيات لجعل مساحات العمل قابلة للتمييز والتنقل بسهولة."
+
+msgid "Works with Any Monitor Setup"
+msgstr "يعمل مع أي إعداد للشاشات"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, whether you use one monitor or several."
+msgstr "امنح كل مساحة عمل خلفية خاصة بها سواء كنت تستخدم شاشة واحدة أو عدة شاشات."
+
+msgid "Override Only What Should Be Different"
+msgstr "تجاوز ما يجب أن يكون مختلفًا فقط"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "تبدأ كل مساحة عمل بإعدادات التبويب الرئيسي. اختر صورة مختلفة فقط عند الحاجة."
+
+msgid "Workspace Specificity"
+msgstr "خصوصية مساحة العمل"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "شغل خلفيات مساحات العمل واختر عدد تكوينات المساحات المراد إظهارها."
+
+msgid "Enable Workspace Specificity"
+msgstr "تمكين خصوصية مساحة العمل"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "عند التعطيل، تستمر Wallshuffle في استخدام التكوين الرئيسي للشاشات."
+
+msgid "Brief Dark Transition When Switching"
+msgstr "انتقال مظلم قصير عند التبديل"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "بسبب طريقة تطبيق GNOME، قد يظهر سطح المكتب مظلمًا لفترة وجيزة عند تحميل الخلفية التالية."
+
+msgid "Workspace Configuration Slots"
+msgstr "فتحات تكوين مساحة العمل"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "طابق عدد مساحات العمل التي تستخدمها عادةً."
+
+msgid "Per-Workspace Overrides"
+msgstr "تجاوزات لكل مساحة عمل"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "افتح مساحة عمل أدناه لتجاوز استراتيجية التحجيم لكل شاشة."
+
+msgid "Use Monitor Default"
+msgstr "استخدام الافتراضي للشاشة"
+
+msgid "Workspace %d"
+msgstr "مساحة العمل %d"
+
+msgid "1 connected display"
+msgstr "شاشة واحدة متصلة"
+
+msgid "%d connected displays"
+msgstr "%d شاشات متصلة"
+
+msgid "%s Scaling Strategy"
+msgstr "استراتيجية التحجيم %s"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   افتراضي الشاشة: %s"
+
+msgid "%s Specific Static Image"
+msgstr "صورة ثابتة مخصصة لـ %s"
+
+msgid "Monitor Default: %s"
+msgstr "افتراضي الشاشة: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "اختر صورة ثابتة لمساحة العمل %d, %s"

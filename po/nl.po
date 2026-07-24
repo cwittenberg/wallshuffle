@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: Dutch\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgid "Turn off to assign static wallpapers sequentially per monitor."
 msgstr "Schakel uit om statische achtergronden sequentieel per monitor toe te wijzen."
 
 msgid "Same Image on All Monitors"
-msgstr "Zelfde Afbeelding op Alle Monitoren"
+msgstr "Zelfde afbeelding op alle monitoren"
 
 msgid "Apply one background to all displays. Requires a multi-monitor setup."
 msgstr "Pas één achtergrond toe op alle schermen. Vereist meerdere monitoren."
@@ -43,13 +43,13 @@ msgid "Where to fetch backgrounds from."
 msgstr "Waar achtergronden vandaan worden gehaald."
 
 msgid "Local Folder"
-msgstr "Lokale Map"
+msgstr "Lokale map"
 
 msgid "Online Random (Picsum)"
-msgstr "Online Willekeurig (Picsum)"
+msgstr "Online willekeurig (Picsum)"
 
 msgid "Online Random (LoremFlickr)"
-msgstr "Online Willekeurig (LoremFlickr)"
+msgstr "Online willekeurig (LoremFlickr)"
 
 msgid "Wallpaper Folder"
 msgstr "Achtergrondmap"
@@ -58,16 +58,16 @@ msgid "Select a directory..."
 msgstr "Selecteer een map..."
 
 msgid "Select Wallpaper Source Folder"
-msgstr "Selecteer Bronmap Achtergronden"
+msgstr "Selecteer bronmap voor achtergronden"
 
 msgid "Per-Monitor Configuration"
-msgstr "Configuratie per Monitor"
+msgstr "Configuratie per monitor"
 
 msgid "Assign individual scaling strategies and static images to connected displays."
 msgstr "Wijs individuele schaalstrategieën en statische afbeeldingen toe aan schermen."
 
 msgid "Unknown Display"
-msgstr "Onbekend Scherm"
+msgstr "Onbekend scherm"
 
 msgid "Display %d"
 msgstr "Scherm %d"
@@ -76,13 +76,13 @@ msgid "Scaling Strategy"
 msgstr "Schaalstrategie"
 
 msgid "Specific Static Image"
-msgstr "Specifieke Statische Afbeelding"
+msgstr "Specifieke statische afbeelding"
 
 msgid "Default (Alphabetical from folder)"
 msgstr "Standaard (Alfabetisch uit map)"
 
 msgid "Select Static Image for %s"
-msgstr "Selecteer Statische Afbeelding voor %s"
+msgstr "Selecteer statische afbeelding voor %s"
 
 msgid "About"
 msgstr "Over"
@@ -105,20 +105,20 @@ msgstr "Lokaal / Ontwikkeling"
 msgid "Author"
 msgstr "Auteur"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "Koop een kopje koffie voor me 💙☕"
+msgid "Buy me a coffee"
+msgstr "Koop een kopje koffie voor me"
 
-msgid "Report a Bug 🪲"
-msgstr "Meld een Bug 🪲"
+msgid "Report a Bug"
+msgstr "Meld een bug"
 
 msgid "Request a Feature"
-msgstr "Vraag een Functie Aan"
+msgstr "Vraag een functie aan"
 
 msgid "Zoom"
 msgstr "Zoomen"
 
 msgid "Fit"
-msgstr "Passend Maken"
+msgstr "Passend maken"
 
 msgid "Centre"
 msgstr "Centreren"
@@ -131,3 +131,87 @@ msgstr "Tegelen"
 
 msgid "Span"
 msgstr "Spreiden"
+
+msgid "Make Every Workspace Your Own"
+msgstr "Maak van elke werkruimte je eigen"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "Gebruik verschillende achtergronden en stijlen per werkruimte, zelfs op één monitor. Schakel Werkruimte Specificiteit in via het Werkruimten-tabblad."
+
+msgid "Workspaces"
+msgstr "Werkruimten"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "Een visuele identiteit voor elke werkruimte"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "Gebruik achtergronden om werkruimten direct herkenbaar te maken."
+
+msgid "Works with Any Monitor Setup"
+msgstr "Werkt met elke monitoropstelling"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, ongeacht hoeveel monitoren je gebruikt."
+msgstr "Geef elke werkruimte zijn eigen achtergrond en strategie, ongeacht hoeveel monitoren je gebruikt."
+
+msgid "Override Only What Should Be Different"
+msgstr "Overschrijf alleen wat anders moet zijn"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "Elke werkruimte begint met de instellingen van het hoofdtabblad. Kies alleen een andere afbeelding waar nodig."
+
+msgid "Workspace Specificity"
+msgstr "Werkruimte Specificiteit"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "Schakel werkruimte-specifieke achtergronden in en kies hoeveel configuraties je wilt tonen."
+
+msgid "Enable Workspace Specificity"
+msgstr "Werkruimte specificiteit inschakelen"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "Indien uitgeschakeld, blijft Wallshuffle de hoofdconfiguratie per monitor gebruiken."
+
+msgid "Brief Dark Transition When Switching"
+msgstr "Korte donkere overgang bij het wisselen"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "Het bureaublad kan heel even donker lijken terwijl de volgende achtergrond laadt. Dit gebeurt alleen als Werkruimte Specificiteit is ingeschakeld."
+
+msgid "Workspace Configuration Slots"
+msgstr "Werkruimte configuratiesloten"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "Kies het aantal werkruimten dat je normaal gebruikt. Voeg extra sloten toe voor dynamische werkruimten."
+
+msgid "Per-Workspace Overrides"
+msgstr "Overschrijvingen per werkruimte"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "Open een werkruimte hieronder om de schaalstrategie of statische afbeelding per monitor te overschrijven."
+
+msgid "Use Monitor Default"
+msgstr "Gebruik standaard van monitor"
+
+msgid "Workspace %d"
+msgstr "Werkruimte %d"
+
+msgid "1 connected display"
+msgstr "1 aangesloten scherm"
+
+msgid "%d connected displays"
+msgstr "%d aangesloten schermen"
+
+msgid "%s Scaling Strategy"
+msgstr "%s Schaalstrategie"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   Standaard monitor: %s"
+
+msgid "%s Specific Static Image"
+msgstr "%s Specifieke statische afbeelding"
+
+msgid "Monitor Default: %s"
+msgstr "Standaard monitor: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "Selecteer statische afbeelding voor werkruimte %d, %s"

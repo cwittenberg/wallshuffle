@@ -6,9 +6,10 @@ With this extension you can set  dynamic, per-monitor backgrounds using advanced
 
 ## Features
 * **Per-Monitor Configurations:** Assign individual scaling strategies and specific images to each of your connected displays.
+* **Per-Workspace Overrides:** Optionally assign independent backgrounds and rendering strategies per monitor and per workspace.
 * **Advanced Rendering Strategies:** Choose from Zoom, Fit, Centre, Fill, Tile, and Span to perfectly position your backgrounds.
 * **Multiple Sources:** Fetch wallpapers from a local folder or stream online random images via Picsum or LoremFlickr.
-* **Shuffle Mode:** Randomize wallpapers and cycle through them on a customizable timer interval.
+* **Shuffle Mode:** Randomize wallpapers and cycle through them on a customizable timer interval, with independent shuffle state per workspace when enabled.
 * **Static Mode:** Turn off randomization to assign static wallpapers manually per monitor.
 * **Unified Display:** Optionally apply the same background to all displays in a multi-monitor setup.
 * **Localization Support:** Translated into multiple languages including Spanish, French, German, Japanese, and more.

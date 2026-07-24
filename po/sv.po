@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: Swedish\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -105,11 +105,11 @@ msgstr "Lokalt / Utveckling"
 msgid "Author"
 msgstr "Författare"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "Köp mig en kaffe 💙☕"
+msgid "Buy me a coffee"
+msgstr "Köp mig en kaffe"
 
-msgid "Report a Bug 🪲"
-msgstr "Rapportera en bugg 🪲"
+msgid "Report a Bug"
+msgstr "Rapportera en bugg"
 
 msgid "Request a Feature"
 msgstr "Föreslå en funktion"
@@ -131,3 +131,87 @@ msgstr "Sida vid sida"
 
 msgid "Span"
 msgstr "Spänn över"
+
+msgid "Make Every Workspace Your Own"
+msgstr "Gör varje arbetsyta till din egen"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "Använd olika bakgrunder per arbetsyta även med en skärm. Aktivera på fliken Arbetsytor."
+
+msgid "Workspaces"
+msgstr "Arbetsytor"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "En visuell identitet för varje arbetsyta"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "Använd bakgrunder för att göra arbetsytor lättare att känna igen."
+
+msgid "Works with Any Monitor Setup"
+msgstr "Fungerar med alla skärmuppsättningar"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, whether you use one monitor or several."
+msgstr "Ge varje arbetsyta sin egen bakgrund, oavsett hur många skärmar du har."
+
+msgid "Override Only What Should Be Different"
+msgstr "Ändra bara det som ska vara annorlunda"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "Varje arbetsyta börjar med grundinställningarna. Välj en ny bild bara där det behövs."
+
+msgid "Workspace Specificity"
+msgstr "Arbetsytespecifika inställningar"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "Slå på arbetsytespecifika bakgrunder och välj antal konfigurationer att visa."
+
+msgid "Enable Workspace Specificity"
+msgstr "Aktivera arbetsytespecifika inställningar"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "När inaktiverad använder Wallshuffle huvudkonfigurationen per skärm."
+
+msgid "Brief Dark Transition When Switching"
+msgstr "Kort mörk övergång vid byte"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "Skrivbordet kan bli mörkt helt kort medan nästa bakgrund laddas."
+
+msgid "Workspace Configuration Slots"
+msgstr "Konfigurationsplatser för arbetsytor"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "Matcha antalet arbetsytor du normalt använder."
+
+msgid "Per-Workspace Overrides"
+msgstr "Åsidosättningar per arbetsyta"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "Öppna en arbetsyta nedan för att åsidosätta dess inställningar för varje skärm."
+
+msgid "Use Monitor Default"
+msgstr "Använd skärmens standard"
+
+msgid "Workspace %d"
+msgstr "Arbetsyta %d"
+
+msgid "1 connected display"
+msgstr "1 ansluten skärm"
+
+msgid "%d connected displays"
+msgstr "%d anslutna skärmar"
+
+msgid "%s Scaling Strategy"
+msgstr "Skaleringsstrategi för %s"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   Skärmstandard: %s"
+
+msgid "%s Specific Static Image"
+msgstr "Specifik statisk bild för %s"
+
+msgid "Monitor Default: %s"
+msgstr "Skärmens standard: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "Välj statisk bild för arbetsyta %d, %s"

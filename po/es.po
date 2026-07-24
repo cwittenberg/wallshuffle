@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: Spanish\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgid "Global Preferences"
 msgstr "Preferencias Globales"
 
 msgid "Configure behavior, timing, and sources."
-msgstr "Configura comportamiento, temporización y fuentes."
+msgstr "Configura el comportamiento, los intervalos y las fuentes."
 
 msgid "Randomize / Shuffle"
 msgstr "Aleatorio / Mezclar"
@@ -25,25 +25,25 @@ msgid "Turn off to assign static wallpapers sequentially per monitor."
 msgstr "Desactivar para asignar fondos de pantalla estáticos de forma secuencial por monitor."
 
 msgid "Same Image on All Monitors"
-msgstr "Misma Imagen en Todos los Monitores"
+msgstr "Misma imagen en todos los monitores"
 
 msgid "Apply one background to all displays. Requires a multi-monitor setup."
-msgstr "Aplica un fondo a todas las pantallas. Requiere configuración multi-monitor."
+msgstr "Aplica un fondo a todas las pantallas. Requiere una configuración multi-monitor."
 
 msgid "Change Interval (Minutes)"
-msgstr "Intervalo de Cambio (Minutos)"
+msgstr "Intervalo de cambio (Minutos)"
 
 msgid "Frequency of background cycling."
 msgstr "Frecuencia de ciclo de los fondos."
 
 msgid "Wallpaper Source"
-msgstr "Fuente de Fondos de Pantalla"
+msgstr "Fuente de fondos de pantalla"
 
 msgid "Where to fetch backgrounds from."
 msgstr "De dónde obtener los fondos."
 
 msgid "Local Folder"
-msgstr "Carpeta Local"
+msgstr "Carpeta local"
 
 msgid "Online Random (Picsum)"
 msgstr "Aleatorio Online (Picsum)"
@@ -52,16 +52,16 @@ msgid "Online Random (LoremFlickr)"
 msgstr "Aleatorio Online (LoremFlickr)"
 
 msgid "Wallpaper Folder"
-msgstr "Carpeta de Fondos"
+msgstr "Carpeta de fondos"
 
 msgid "Select a directory..."
 msgstr "Seleccionar un directorio..."
 
 msgid "Select Wallpaper Source Folder"
-msgstr "Seleccionar Carpeta de Fondos de Pantalla"
+msgstr "Seleccionar carpeta de fondos de pantalla"
 
 msgid "Per-Monitor Configuration"
-msgstr "Configuración por Monitor"
+msgstr "Configuración por monitor"
 
 msgid "Assign individual scaling strategies and static images to connected displays."
 msgstr "Asigna estrategias de escalado e imágenes estáticas individuales a las pantallas conectadas."
@@ -73,22 +73,22 @@ msgid "Display %d"
 msgstr "Pantalla %d"
 
 msgid "Scaling Strategy"
-msgstr "Estrategia de Escalado"
+msgstr "Estrategia de escalado"
 
 msgid "Specific Static Image"
-msgstr "Imagen Estática Específica"
+msgstr "Imagen estática específica"
 
 msgid "Default (Alphabetical from folder)"
-msgstr "Por Defecto (Alfabético desde la carpeta)"
+msgstr "Por defecto (Alfabético desde la carpeta)"
 
 msgid "Select Static Image for %s"
-msgstr "Seleccionar Imagen Estática para %s"
+msgstr "Seleccionar imagen estática para %s"
 
 msgid "About"
 msgstr "Acerca de"
 
 msgid "Extension Information"
-msgstr "Información de la Extensión"
+msgstr "Información de la extensión"
 
 msgid "Wallshuffle"
 msgstr "Wallshuffle"
@@ -105,14 +105,14 @@ msgstr "Local / Desarrollo"
 msgid "Author"
 msgstr "Autor"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "Invítame a un café 💙☕"
+msgid "Buy me a coffee"
+msgstr "Invítame a un café"
 
-msgid "Report a Bug 🪲"
-msgstr "Reportar un Error 🪲"
+msgid "Report a Bug"
+msgstr "Reportar un error"
 
 msgid "Request a Feature"
-msgstr "Solicitar una Función"
+msgstr "Solicitar una función"
 
 msgid "Zoom"
 msgstr "Ampliar"
@@ -131,3 +131,87 @@ msgstr "Mosaico"
 
 msgid "Span"
 msgstr "Expandir"
+
+msgid "Make Every Workspace Your Own"
+msgstr "Personaliza cada área de trabajo"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "Utiliza diferentes fondos y estilos de renderizado por área de trabajo incluso con un solo monitor. Habilita la Especificidad del Área de Trabajo en la pestaña de Áreas de trabajo."
+
+msgid "Workspaces"
+msgstr "Áreas de trabajo"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "Una identidad visual para cada área de trabajo"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "Usa fondos para hacer las áreas de trabajo reconocibles al instante y fáciles de navegar."
+
+msgid "Works with Any Monitor Setup"
+msgstr "Funciona con cualquier configuración de monitores"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, whether you use one monitor or several."
+msgstr "Dale a cada área de trabajo su propio fondo y estrategia de escalado, ya sea con uno o varios monitores."
+
+msgid "Override Only What Should Be Different"
+msgstr "Sobrescribe solo lo necesario"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "Cada área comienza con los ajustes de la pestaña principal. Elige una imagen o modo diferente solo donde sea necesario."
+
+msgid "Workspace Specificity"
+msgstr "Especificidad del área de trabajo"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "Activa los fondos conscientes del área de trabajo y elige cuántas configuraciones mostrar."
+
+msgid "Enable Workspace Specificity"
+msgstr "Habilitar la especificidad del área de trabajo"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "Si está deshabilitado, Wallshuffle usa la configuración principal por monitor."
+
+msgid "Brief Dark Transition When Switching"
+msgstr "Breve transición oscura al cambiar"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "Por cómo GNOME aplica los fondos, el escritorio puede verse oscuro un instante al cargar. Esto solo ocurre si la Especificidad está habilitada."
+
+msgid "Workspace Configuration Slots"
+msgstr "Espacios de configuración de áreas"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "Debe coincidir con las áreas que usas normalmente. Añade más espacios si usas áreas dinámicas."
+
+msgid "Per-Workspace Overrides"
+msgstr "Excepciones por Área de trabajo"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "Abre un área de trabajo abajo para sobrescribir su estrategia de escalado o imagen para cada monitor."
+
+msgid "Use Monitor Default"
+msgstr "Usar valor por defecto del monitor"
+
+msgid "Workspace %d"
+msgstr "Área de trabajo %d"
+
+msgid "1 connected display"
+msgstr "1 pantalla conectada"
+
+msgid "%d connected displays"
+msgstr "%d pantallas conectadas"
+
+msgid "%s Scaling Strategy"
+msgstr "Estrategia de escalado de %s"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   Por defecto del monitor: %s"
+
+msgid "%s Specific Static Image"
+msgstr "Imagen estática específica para %s"
+
+msgid "Monitor Default: %s"
+msgstr "Por defecto del monitor: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "Seleccionar imagen estática para el Área de trabajo %d, %s"

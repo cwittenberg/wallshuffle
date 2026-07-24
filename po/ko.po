@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: Korean\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -13,19 +13,19 @@ msgid "Settings"
 msgstr "설정"
 
 msgid "Global Preferences"
-msgstr "기본 설정"
+msgstr "전역 설정"
 
 msgid "Configure behavior, timing, and sources."
-msgstr "동작, 타이밍 및 소스를 구성합니다."
+msgstr "동작, 시간, 소스를 구성합니다."
 
 msgid "Randomize / Shuffle"
 msgstr "무작위 / 셔플"
 
 msgid "Turn off to assign static wallpapers sequentially per monitor."
-msgstr "모니터별로 정적 배경화면을 순차적으로 할당하려면 끕니다."
+msgstr "모니터별로 고정 배경화면을 할당하려면 끄십시오."
 
 msgid "Same Image on All Monitors"
-msgstr "모든 모니터에 동일한 이미지"
+msgstr "모든 모니터에 같은 이미지"
 
 msgid "Apply one background to all displays. Requires a multi-monitor setup."
 msgstr "모든 디스플레이에 하나의 배경을 적용합니다. 다중 모니터 설정이 필요합니다."
@@ -61,10 +61,10 @@ msgid "Select Wallpaper Source Folder"
 msgstr "배경화면 소스 폴더 선택"
 
 msgid "Per-Monitor Configuration"
-msgstr "모니터별 구성"
+msgstr "모니터별 설정"
 
 msgid "Assign individual scaling strategies and static images to connected displays."
-msgstr "연결된 디스플레이에 개별 비율 조정 전략 및 정적 이미지를 할당합니다."
+msgstr "연결된 디스플레이에 개별 스케일링 방식과 고정 이미지를 할당합니다."
 
 msgid "Unknown Display"
 msgstr "알 수 없는 디스플레이"
@@ -73,16 +73,16 @@ msgid "Display %d"
 msgstr "디스플레이 %d"
 
 msgid "Scaling Strategy"
-msgstr "비율 조정 전략"
+msgstr "스케일링 전략"
 
 msgid "Specific Static Image"
-msgstr "특정 정적 이미지"
+msgstr "특정 고정 이미지"
 
 msgid "Default (Alphabetical from folder)"
 msgstr "기본값 (폴더에서 알파벳 순)"
 
 msgid "Select Static Image for %s"
-msgstr "%s의 정적 이미지 선택"
+msgstr "%s에 대한 고정 이미지 선택"
 
 msgid "About"
 msgstr "정보"
@@ -94,7 +94,7 @@ msgid "Wallshuffle"
 msgstr "Wallshuffle"
 
 msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
-msgstr "고급 렌더링 전략을 사용하여 모니터별 동적 배경을 설정합니다."
+msgstr "고급 렌더링을 사용하여 모니터별 동적 배경화면을 설정합니다."
 
 msgid "Version"
 msgstr "버전"
@@ -103,13 +103,13 @@ msgid "Local / Development"
 msgstr "로컬 / 개발"
 
 msgid "Author"
-msgstr "개발자"
+msgstr "작성자"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "커피 후원하기 💙☕"
+msgid "Buy me a coffee"
+msgstr "커피 한 잔 사주기"
 
-msgid "Report a Bug 🪲"
-msgstr "버그 신고 🪲"
+msgid "Report a Bug"
+msgstr "버그 신고"
 
 msgid "Request a Feature"
 msgstr "기능 요청"
@@ -121,7 +121,7 @@ msgid "Fit"
 msgstr "맞춤"
 
 msgid "Centre"
-msgstr "가운데"
+msgstr "중앙"
 
 msgid "Fill"
 msgstr "채우기"
@@ -130,4 +130,88 @@ msgid "Tile"
 msgstr "바둑판"
 
 msgid "Span"
-msgstr "전체 화면"
+msgstr "확장"
+
+msgid "Make Every Workspace Your Own"
+msgstr "모든 작업 공간을 나만의 공간으로"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "작업 공간마다 다른 배경화면을 사용하세요. 작업 공간 탭에서 활성화하세요."
+
+msgid "Workspaces"
+msgstr "작업 공간"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "작업 공간마다 시각적 정체성 부여"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "배경화면을 사용하여 작업 공간을 즉시 알아볼 수 있게 만드세요."
+
+msgid "Works with Any Monitor Setup"
+msgstr "모든 모니터 설정과 호환"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, whether you use one monitor or several."
+msgstr "모니터 수에 관계없이 모든 작업 공간에 고유한 배경화면을 지정하세요."
+
+msgid "Override Only What Should Be Different"
+msgstr "다르게 설정할 부분만 덮어쓰기"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "기본 설정을 따르되, 필요한 곳에서만 다른 이미지를 선택하세요."
+
+msgid "Workspace Specificity"
+msgstr "작업 공간 고유 설정"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "작업 공간 인식 배경을 켜고 표시할 설정 수를 선택하세요."
+
+msgid "Enable Workspace Specificity"
+msgstr "작업 공간 고유 설정 활성화"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "비활성화 시 기본 모니터별 설정이 계속 사용됩니다."
+
+msgid "Brief Dark Transition When Switching"
+msgstr "전환 시 짧은 어두운 화면"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "GNOME의 방식으로 인해 다음 배경화면이 로드될 때 잠시 화면이 어두워질 수 있습니다."
+
+msgid "Workspace Configuration Slots"
+msgstr "작업 공간 설정 슬롯"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "평소 사용하는 작업 공간 수에 맞추세요."
+
+msgid "Per-Workspace Overrides"
+msgstr "작업 공간별 덮어쓰기"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "각 모니터의 설정을 덮어쓰려면 아래의 작업 공간을 여세요."
+
+msgid "Use Monitor Default"
+msgstr "모니터 기본값 사용"
+
+msgid "Workspace %d"
+msgstr "작업 공간 %d"
+
+msgid "1 connected display"
+msgstr "1개의 연결된 디스플레이"
+
+msgid "%d connected displays"
+msgstr "%d개의 연결된 디스플레이"
+
+msgid "%s Scaling Strategy"
+msgstr "%s 스케일링 전략"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   모니터 기본값: %s"
+
+msgid "%s Specific Static Image"
+msgstr "%s 특정 고정 이미지"
+
+msgid "Monitor Default: %s"
+msgstr "모니터 기본값: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "작업 공간 %d, %s의 고정 이미지 선택"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: Japanese\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -13,10 +13,10 @@ msgid "Settings"
 msgstr "設定"
 
 msgid "Global Preferences"
-msgstr "全体設定"
+msgstr "グローバル設定"
 
 msgid "Configure behavior, timing, and sources."
-msgstr "動作、タイミング、およびソースを構成します。"
+msgstr "動作、タイミング、およびソースを設定します。"
 
 msgid "Randomize / Shuffle"
 msgstr "ランダム / シャッフル"
@@ -34,13 +34,13 @@ msgid "Change Interval (Minutes)"
 msgstr "変更間隔（分）"
 
 msgid "Frequency of background cycling."
-msgstr "背景切り替えの頻度。"
+msgstr "背景が切り替わる頻度。"
 
 msgid "Wallpaper Source"
 msgstr "壁紙のソース"
 
 msgid "Where to fetch backgrounds from."
-msgstr "背景を取得する場所。"
+msgstr "背景の取得元。"
 
 msgid "Local Folder"
 msgstr "ローカルフォルダー"
@@ -61,10 +61,10 @@ msgid "Select Wallpaper Source Folder"
 msgstr "壁紙ソースフォルダーを選択"
 
 msgid "Per-Monitor Configuration"
-msgstr "モニター別設定"
+msgstr "モニターごとの設定"
 
 msgid "Assign individual scaling strategies and static images to connected displays."
-msgstr "接続されたディスプレイに個別のスケーリング戦略と静的画像を割り当てます。"
+msgstr "接続されたディスプレイごとにスケーリング設定や画像を割り当てます。"
 
 msgid "Unknown Display"
 msgstr "不明なディスプレイ"
@@ -73,19 +73,19 @@ msgid "Display %d"
 msgstr "ディスプレイ %d"
 
 msgid "Scaling Strategy"
-msgstr "スケーリング戦略"
+msgstr "スケーリング方法"
 
 msgid "Specific Static Image"
 msgstr "特定の静的画像"
 
 msgid "Default (Alphabetical from folder)"
-msgstr "デフォルト（フォルダーからアルファベット順）"
+msgstr "デフォルト（フォルダーのアルファベット順）"
 
 msgid "Select Static Image for %s"
-msgstr "%sの静的画像を選択"
+msgstr "%s 用の静的画像を選択"
 
 msgid "About"
-msgstr "について"
+msgstr "情報"
 
 msgid "Extension Information"
 msgstr "拡張機能情報"
@@ -94,7 +94,7 @@ msgid "Wallshuffle"
 msgstr "Wallshuffle"
 
 msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
-msgstr "高度なレンダリング戦略を使用して、モニターごとの動的な背景を設定します。"
+msgstr "高度なレンダリング方法を使用して、モニターごとに動的な背景を設定します。"
 
 msgid "Version"
 msgstr "バージョン"
@@ -105,29 +105,113 @@ msgstr "ローカル / 開発"
 msgid "Author"
 msgstr "作成者"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "コーヒーを奢る 💙☕"
+msgid "Buy me a coffee"
+msgstr "コーヒーを奢る"
 
-msgid "Report a Bug 🪲"
-msgstr "バグを報告 🪲"
+msgid "Report a Bug"
+msgstr "バグを報告する"
 
 msgid "Request a Feature"
-msgstr "機能をリクエスト"
+msgstr "機能をリクエストする"
 
 msgid "Zoom"
 msgstr "ズーム"
 
 msgid "Fit"
-msgstr "合わせる"
+msgstr "フィット"
 
 msgid "Centre"
-msgstr "中央配置"
+msgstr "中央"
 
 msgid "Fill"
-msgstr "塗りつぶし"
+msgstr "フィル"
 
 msgid "Tile"
-msgstr "並べる"
+msgstr "タイル"
 
 msgid "Span"
 msgstr "スパン"
+
+msgid "Make Every Workspace Your Own"
+msgstr "すべてのワークスペースを自分専用に"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "シングルモニターでもワークスペースごとに異なる壁紙とスタイルを使用できます。「ワークスペース」タブから有効にしてください。"
+
+msgid "Workspaces"
+msgstr "ワークスペース"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "各ワークスペースに視覚的なアイデンティティを"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "壁紙を使用してワークスペースをすぐに認識できるようにします。"
+
+msgid "Works with Any Monitor Setup"
+msgstr "あらゆるモニター構成で動作します"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, whether you use one monitor or several."
+msgstr "1台でも複数台でも、各ワークスペースに独自の壁紙とスケーリング方法を設定します。"
+
+msgid "Override Only What Should Be Different"
+msgstr "異なる部分のみを上書きする"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "すべてのワークスペースはメインタブの設定から始まります。必要な場合のみ画像やモードを変更してください。"
+
+msgid "Workspace Specificity"
+msgstr "ワークスペースの個別設定"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "ワークスペースごとの背景をオンにして、表示する設定数を選択します。"
+
+msgid "Enable Workspace Specificity"
+msgstr "ワークスペースの個別設定を有効にする"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "無効にすると、メインのモニターごとの設定が引き続き使用されます。"
+
+msgid "Brief Dark Transition When Switching"
+msgstr "切り替え時の短い暗転"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "GNOMEの仕様により、次の背景を読み込む間、デスクトップがごく短時間暗くなることがあります。"
+
+msgid "Workspace Configuration Slots"
+msgstr "ワークスペース設定スロット"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "普段使用するワークスペースの数に合わせてください。"
+
+msgid "Per-Workspace Overrides"
+msgstr "ワークスペースごとの上書き設定"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "各モニターの継承されたスケーリングや静的画像を上書きするには、以下のワークスペースを開きます。"
+
+msgid "Use Monitor Default"
+msgstr "モニターのデフォルトを使用"
+
+msgid "Workspace %d"
+msgstr "ワークスペース %d"
+
+msgid "1 connected display"
+msgstr "1台の接続されたディスプレイ"
+
+msgid "%d connected displays"
+msgstr "%d台の接続されたディスプレイ"
+
+msgid "%s Scaling Strategy"
+msgstr "%s のスケーリング方法"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   モニターのデフォルト: %s"
+
+msgid "%s Specific Static Image"
+msgstr "%s 特定の静的画像"
+
+msgid "Monitor Default: %s"
+msgstr "モニターのデフォルト: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "ワークスペース %d, %s 用の静的画像を選択"

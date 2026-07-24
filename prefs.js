@@ -6,6 +6,7 @@ import GLib from 'gi://GLib';
 import { ExtensionPreferences, gettext as _ } from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
 import { buildAboutPage } from './prefs_about.js';
+import { buildWorkspacesPage } from './prefs_workspaces.js';
 
 export default class WallshufflePrefs extends ExtensionPreferences {
     fillPreferencesWindow(window) {
@@ -27,6 +28,23 @@ export default class WallshufflePrefs extends ExtensionPreferences {
             title: _('Settings'),
             icon_name: 'preferences-system-symbolic'
         });
+
+        const workspaceHintGroup = new Adw.PreferencesGroup();
+
+        const workspaceHintRow = new Adw.ActionRow({
+            title: _('Make Every Workspace Your Own'),
+            subtitle: _('Use different wallpapers and rendering styles per workspace—even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab.')
+        });
+
+        const workspaceHintIcon = new Gtk.Image({
+            icon_name: 'view-grid-symbolic',
+            pixel_size: 32,
+            valign: Gtk.Align.CENTER
+        });
+
+        workspaceHintRow.add_prefix(workspaceHintIcon);
+        workspaceHintGroup.add(workspaceHintRow);
+        pageMain.add(workspaceHintGroup);
 
         // -------------------------------------------------------------
         // Group 1: Global Configuration
@@ -352,6 +370,12 @@ export default class WallshufflePrefs extends ExtensionPreferences {
         }
 
         window.add(pageMain);
+
+        // ==============================================================
+        // WORKSPACES PAGE
+        // ==============================================================
+        const pageWorkspaces = buildWorkspacesPage(settings, window, monitors);
+        window.add(pageWorkspaces);
 
         // ==============================================================
         // ABOUT PAGE

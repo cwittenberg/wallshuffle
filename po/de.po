@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: German\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -105,11 +105,11 @@ msgstr "Lokal / Entwicklung"
 msgid "Author"
 msgstr "Autor"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "Spendiere mir einen Kaffee 💙☕"
+msgid "Buy me a coffee"
+msgstr "Spendiere mir einen Kaffee"
 
-msgid "Report a Bug 🪲"
-msgstr "Fehler melden 🪲"
+msgid "Report a Bug"
+msgstr "Fehler melden"
 
 msgid "Request a Feature"
 msgstr "Funktion anfragen"
@@ -131,3 +131,87 @@ msgstr "Kacheln"
 
 msgid "Span"
 msgstr "Überspannen"
+
+msgid "Make Every Workspace Your Own"
+msgstr "Mach jede Arbeitsfläche zu deiner eigenen"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "Verwende verschiedene Bilder pro Arbeitsfläche, selbst mit nur einem Monitor. Aktiviere dies im Tab Arbeitsflächen."
+
+msgid "Workspaces"
+msgstr "Arbeitsflächen"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "Eine visuelle Identität für jede Arbeitsfläche"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "Nutze Hintergründe, um Arbeitsflächen sofort erkennbar zu machen."
+
+msgid "Works with Any Monitor Setup"
+msgstr "Funktioniert mit jedem Monitor-Setup"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, whether you use one monitor or several."
+msgstr "Gib jeder Arbeitsfläche ihr eigenes Bild, egal ob ein oder mehrere Monitore."
+
+msgid "Override Only What Should Be Different"
+msgstr "Überschreibe nur, was anders sein soll"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "Jede Arbeitsfläche startet mit den Haupt-Einstellungen. Ändere das Bild nur wo nötig."
+
+msgid "Workspace Specificity"
+msgstr "Arbeitsflächen-Spezifität"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "Aktiviere spezifische Hintergründe und wähle die Anzahl der Konfigurationen."
+
+msgid "Enable Workspace Specificity"
+msgstr "Arbeitsflächen-Spezifität aktivieren"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "Wenn deaktiviert, nutzt Wallshuffle die Haupt-Konfiguration pro Monitor."
+
+msgid "Brief Dark Transition When Switching"
+msgstr "Kurzer dunkler Übergang beim Wechseln"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "Aufgrund der Funktionsweise von GNOME kann der Desktop beim Laden kurz dunkel erscheinen."
+
+msgid "Workspace Configuration Slots"
+msgstr "Arbeitsflächen-Konfigurations-Slots"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "Passe die Anzahl an deine übliche Menge an Arbeitsflächen an."
+
+msgid "Per-Workspace Overrides"
+msgstr "Überschreibungen pro Arbeitsfläche"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "Öffne unten eine Arbeitsfläche, um die Skalierungsstrategie für jeden Monitor zu überschreiben."
+
+msgid "Use Monitor Default"
+msgstr "Monitor-Standard verwenden"
+
+msgid "Workspace %d"
+msgstr "Arbeitsfläche %d"
+
+msgid "1 connected display"
+msgstr "1 verbundener Bildschirm"
+
+msgid "%d connected displays"
+msgstr "%d verbundene Bildschirme"
+
+msgid "%s Scaling Strategy"
+msgstr "%s Skalierungsstrategie"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   Monitor-Standard: %s"
+
+msgid "%s Specific Static Image"
+msgstr "Spezifisches statisches Bild für %s"
+
+msgid "Monitor Default: %s"
+msgstr "Monitor-Standard: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "Statisches Bild für Arbeitsfläche %d, %s wählen"

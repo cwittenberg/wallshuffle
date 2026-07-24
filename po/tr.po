@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: Turkish\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgid "Select a directory..."
 msgstr "Bir dizin seçin..."
 
 msgid "Select Wallpaper Source Folder"
-msgstr "Duvar Kağıdı Kaynak Klasörünü Seç"
+msgstr "Duvar Kağıdı Kaynak Klasörü"
 
 msgid "Per-Monitor Configuration"
 msgstr "Monitör Başına Yapılandırma"
@@ -105,11 +105,11 @@ msgstr "Yerel / Geliştirme"
 msgid "Author"
 msgstr "Yazar"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "Bana bir kahve ısmarla 💙☕"
+msgid "Buy me a coffee"
+msgstr "Bana bir kahve ısmarla"
 
-msgid "Report a Bug 🪲"
-msgstr "Hata Bildir 🪲"
+msgid "Report a Bug"
+msgstr "Hata Bildir"
 
 msgid "Request a Feature"
 msgstr "Özellik İste"
@@ -131,3 +131,87 @@ msgstr "Döşe"
 
 msgid "Span"
 msgstr "Yay"
+
+msgid "Make Every Workspace Your Own"
+msgstr "Her Çalışma Alanını Kendinize Özel Yapın"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "Tek monitörlü kurulumda bile her çalışma alanı için farklı duvar kağıtları kullanın."
+
+msgid "Workspaces"
+msgstr "Çalışma Alanları"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "Her Çalışma Alanı İçin Görsel Bir Kimlik"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "Çalışma alanlarını anında tanınabilir hale getirmek için duvar kağıtları kullanın."
+
+msgid "Works with Any Monitor Setup"
+msgstr "Her Monitör Kurulumuyla Çalışır"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, whether you use one monitor or several."
+msgstr "Kaç monitör kullandığınızdan bağımsız olarak, her çalışma alanına kendi duvar kağıdını verin."
+
+msgid "Override Only What Should Be Different"
+msgstr "Yalnızca Farklı Olması Gerekeni Geçersiz Kılın"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "Her çalışma alanı ana sekmedeki ayarlarla başlar. Yalnızca gerektiğinde farklı bir görüntü seçin."
+
+msgid "Workspace Specificity"
+msgstr "Çalışma Alanı Özgüllüğü"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "Çalışma alanına duyarlı arka planları açın, ardından yapılandırma sayısını seçin."
+
+msgid "Enable Workspace Specificity"
+msgstr "Çalışma Alanı Özgüllüğünü Etkinleştir"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "Devre dışı bırakıldığında, Wallshuffle ana yapılandırmayı kullanmaya devam eder."
+
+msgid "Brief Dark Transition When Switching"
+msgstr "Geçiş Sırasında Kısa Karanlık Geçiş"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "Sonraki arka plan yüklenirken masaüstü çok kısa bir süreliğine karanlık görünebilir."
+
+msgid "Workspace Configuration Slots"
+msgstr "Çalışma Alanı Yapılandırma Yuvaları"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "Genellikle kullandığınız çalışma alanlarının sayısıyla eşleştirin."
+
+msgid "Per-Workspace Overrides"
+msgstr "Çalışma Alanı Başına Geçersiz Kılmalar"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "Her monitör için ayarları geçersiz kılmak için aşağıdan bir çalışma alanı açın."
+
+msgid "Use Monitor Default"
+msgstr "Monitör Varsayılanını Kullan"
+
+msgid "Workspace %d"
+msgstr "Çalışma Alanı %d"
+
+msgid "1 connected display"
+msgstr "1 bağlı ekran"
+
+msgid "%d connected displays"
+msgstr "%d bağlı ekran"
+
+msgid "%s Scaling Strategy"
+msgstr "%s Ölçeklendirme Stratejisi"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   Monitör varsayılanı: %s"
+
+msgid "%s Specific Static Image"
+msgstr "%s Özel Statik Görüntü"
+
+msgid "Monitor Default: %s"
+msgstr "Monitör Varsayılanı: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "Çalışma Alanı %d, %s için Görüntü Seç"

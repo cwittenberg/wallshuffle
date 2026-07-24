@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: Hindi\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -16,31 +16,31 @@ msgid "Global Preferences"
 msgstr "वैश्विक प्राथमिकताएं"
 
 msgid "Configure behavior, timing, and sources."
-msgstr "व्यवहार, समय और स्रोत कॉन्फ़िगर करें।"
+msgstr "व्यवहार, समय और स्रोतों को कॉन्फ़िगर करें।"
 
 msgid "Randomize / Shuffle"
 msgstr "यादृच्छिक / शफ़ल"
 
 msgid "Turn off to assign static wallpapers sequentially per monitor."
-msgstr "प्रति मॉनिटर क्रमिक रूप से स्थिर वॉलपेपर असाइन करने के लिए बंद करें।"
+msgstr "प्रत्येक मॉनिटर के लिए स्थिर वॉलपेपर सेट करने हेतु इसे बंद करें।"
 
 msgid "Same Image on All Monitors"
 msgstr "सभी मॉनिटर्स पर एक ही छवि"
 
 msgid "Apply one background to all displays. Requires a multi-monitor setup."
-msgstr "सभी डिस्प्ले पर एक बैकग्राउंड लागू करें। मल्टी-मॉनिटर सेटअप की आवश्यकता है।"
+msgstr "सभी डिस्प्ले पर एक ही बैकग्राउंड लागू करें। इसके लिए मल्टी-मॉनिटर सेटअप चाहिए।"
 
 msgid "Change Interval (Minutes)"
-msgstr "परिवर्तन अंतराल (मिनट)"
+msgstr "बदलाव का अंतराल (मिनट)"
 
 msgid "Frequency of background cycling."
-msgstr "पृष्ठभूमि चक्रण की आवृत्ति।"
+msgstr "बैकग्राउंड बदलने की आवृत्ति।"
 
 msgid "Wallpaper Source"
-msgstr "वॉलपेपर का स्रोत"
+msgstr "वॉलपेपर स्रोत"
 
 msgid "Where to fetch backgrounds from."
-msgstr "बैकग्राउंड कहां से लाएं।"
+msgstr "बैकग्राउंड कहाँ से प्राप्त करें।"
 
 msgid "Local Folder"
 msgstr "स्थानीय फ़ोल्डर"
@@ -55,7 +55,7 @@ msgid "Wallpaper Folder"
 msgstr "वॉलपेपर फ़ोल्डर"
 
 msgid "Select a directory..."
-msgstr "एक निर्देशिका चुनें..."
+msgstr "कोई निर्देशिका चुनें..."
 
 msgid "Select Wallpaper Source Folder"
 msgstr "वॉलपेपर स्रोत फ़ोल्डर चुनें"
@@ -64,7 +64,7 @@ msgid "Per-Monitor Configuration"
 msgstr "प्रति-मॉनिटर कॉन्फ़िगरेशन"
 
 msgid "Assign individual scaling strategies and static images to connected displays."
-msgstr "कनेक्ट किए गए डिस्प्ले को अलग-अलग स्केलिंग रणनीतियाँ और स्थिर चित्र असाइन करें।"
+msgstr "जुड़े हुए डिस्प्ले को अलग-अलग स्केलिंग रणनीतियाँ और चित्र असाइन करें।"
 
 msgid "Unknown Display"
 msgstr "अज्ञात डिस्प्ले"
@@ -79,7 +79,7 @@ msgid "Specific Static Image"
 msgstr "विशिष्ट स्थिर छवि"
 
 msgid "Default (Alphabetical from folder)"
-msgstr "डिफ़ॉल्ट (फ़ोल्डर से वर्णानुक्रमिक)"
+msgstr "डिफ़ॉल्ट (फ़ोल्डर से वर्णमाला के अनुसार)"
 
 msgid "Select Static Image for %s"
 msgstr "%s के लिए स्थिर छवि चुनें"
@@ -88,13 +88,13 @@ msgid "About"
 msgstr "के बारे में"
 
 msgid "Extension Information"
-msgstr "विस्तार जानकारी"
+msgstr "एक्सटेंशन जानकारी"
 
 msgid "Wallshuffle"
 msgstr "Wallshuffle"
 
 msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
-msgstr "उन्नत रेंडरिंग रणनीतियों का उपयोग करके गतिशील बैकग्राउंड सेट करें।"
+msgstr "उन्नत प्रतिपादन रणनीतियों का उपयोग करके प्रति-मॉनिटर डायनामिक बैकग्राउंड सेट करें।"
 
 msgid "Version"
 msgstr "संस्करण"
@@ -105,20 +105,20 @@ msgstr "स्थानीय / विकास"
 msgid "Author"
 msgstr "लेखक"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "मुझे एक कॉफी खरीदें 💙☕"
+msgid "Buy me a coffee"
+msgstr "मुझे एक कॉफ़ी पिलाएँ"
 
-msgid "Report a Bug 🪲"
-msgstr "बग रिपोर्ट करें 🪲"
+msgid "Report a Bug"
+msgstr "बग रिपोर्ट करें"
 
 msgid "Request a Feature"
-msgstr "सुविधा का अनुरोध करें"
+msgstr "नई सुविधा का अनुरोध करें"
 
 msgid "Zoom"
-msgstr "ज़ूम"
+msgstr "ज़ूम करें"
 
 msgid "Fit"
-msgstr "फ़िट"
+msgstr "फ़िट करें"
 
 msgid "Centre"
 msgstr "केंद्र"
@@ -130,4 +130,88 @@ msgid "Tile"
 msgstr "टाइल"
 
 msgid "Span"
-msgstr "विस्तार"
+msgstr "फैलाएं"
+
+msgid "Make Every Workspace Your Own"
+msgstr "हर वर्कस्पेस को अपना बनाएं"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "सिंगल-मॉनिटर सेटअप पर भी हर वर्कस्पेस के लिए अलग वॉलपेपर इस्तेमाल करें। इसे वर्कस्पेस टैब से सक्षम करें।"
+
+msgid "Workspaces"
+msgstr "वर्कस्पेस"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "हर वर्कस्पेस के लिए एक दृश्य पहचान"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "वर्कस्पेस को तुरंत पहचानने योग्य बनाने के लिए वॉलपेपर का उपयोग करें।"
+
+msgid "Works with Any Monitor Setup"
+msgstr "किसी भी मॉनिटर सेटअप के साथ काम करता है"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, whether you use one monitor or several."
+msgstr "चाहे आप एक मॉनिटर का उपयोग करें या कई, प्रत्येक वर्कस्पेस को उसका अपना वॉलपेपर दें।"
+
+msgid "Override Only What Should Be Different"
+msgstr "केवल उसे बदलें जो अलग होना चाहिए"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "हर वर्कस्पेस मुख्य टैब की सेटिंग से शुरू होता है। केवल आवश्यकता होने पर ही नई छवि चुनें।"
+
+msgid "Workspace Specificity"
+msgstr "वर्कस्पेस विशिष्टता"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "वर्कस्पेस-जागरूक बैकग्राउंड चालू करें, और चुनें कि कितने कॉन्फ़िगरेशन दिखाने हैं।"
+
+msgid "Enable Workspace Specificity"
+msgstr "वर्कस्पेस विशिष्टता सक्षम करें"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "अक्षम होने पर, वॉलशफ़ल मुख्य मॉनिटर कॉन्फ़िगरेशन का उपयोग करना जारी रखता है।"
+
+msgid "Brief Dark Transition When Switching"
+msgstr "स्विच करते समय संक्षिप्त डार्क ट्रांज़िशन"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "गनोम के बैकग्राउंड लागू करने के तरीके के कारण, बैकग्राउंड लोड होते समय डेस्कटॉप बहुत संक्षेप में डार्क दिखाई दे सकता है।"
+
+msgid "Workspace Configuration Slots"
+msgstr "वर्कस्पेस कॉन्फ़िगरेशन स्लॉट"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "उन वर्कस्पेस की संख्या से मिलान करें जिनका आप सामान्यतः उपयोग करते हैं।"
+
+msgid "Per-Workspace Overrides"
+msgstr "प्रति-वर्कस्पेस ओवरराइड"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "प्रत्येक मॉनिटर के लिए इसकी स्केलिंग रणनीति या स्थिर छवि को ओवरराइड करने के लिए नीचे वर्कस्पेस खोलें।"
+
+msgid "Use Monitor Default"
+msgstr "मॉनिटर डिफ़ॉल्ट का उपयोग करें"
+
+msgid "Workspace %d"
+msgstr "वर्कस्पेस %d"
+
+msgid "1 connected display"
+msgstr "1 कनेक्टेड डिस्प्ले"
+
+msgid "%d connected displays"
+msgstr "%d कनेक्टेड डिस्प्ले"
+
+msgid "%s Scaling Strategy"
+msgstr "%s स्केलिंग रणनीति"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   मॉनिटर डिफ़ॉल्ट: %s"
+
+msgid "%s Specific Static Image"
+msgstr "%s विशिष्ट स्थिर छवि"
+
+msgid "Monitor Default: %s"
+msgstr "मॉनिटर डिफ़ॉल्ट: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "वर्कस्पेस %d, %s के लिए स्थिर छवि चुनें"

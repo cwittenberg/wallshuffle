@@ -26,6 +26,27 @@
       <summary>Wallpaper folder</summary>
       <description>Path to the folder containing wallpaper images.</description>
     </key>
+    <key name="workspace-specific" type="b">
+      <default>false</default>
+      <summary>Enable workspace-specific wallpapers</summary>
+      <description>If true, wallpapers and rendering settings can be overridden per monitor and per workspace.</description>
+    </key>
+    <key name="workspace-count" type="i">
+      <default>4</default>
+      <range min="1" max="36"/>
+      <summary>Workspace configuration slots</summary>
+      <description>Number of workspace override sections shown in preferences.</description>
+    </key>
+    <key name="workspace-monitor-settings" type="s">
+      <default>"{}"</default>
+      <summary>Per-workspace monitor scaling strategies</summary>
+      <description>JSON dictionary mapping workspace indexes to monitor indexes and scaling strategies.</description>
+    </key>
+    <key name="workspace-monitor-images" type="s">
+      <default>"{}"</default>
+      <summary>Per-workspace static images per monitor</summary>
+      <description>JSON dictionary mapping workspace indexes to monitor indexes and explicit image file paths.</description>
+    </key>
     <key name="monitor-settings" type="s">
       <default>"{}"</default>
       <summary>Per-Monitor Scaling Strategies</summary>

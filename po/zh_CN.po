@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: Chinese (Simplified)\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -16,22 +16,22 @@ msgid "Global Preferences"
 msgstr "全局首选项"
 
 msgid "Configure behavior, timing, and sources."
-msgstr "配置行为、计时和来源。"
+msgstr "配置行为、时间和来源。"
 
 msgid "Randomize / Shuffle"
-msgstr "随机 / 随机播放"
+msgstr "随机 / 轮换"
 
 msgid "Turn off to assign static wallpapers sequentially per monitor."
 msgstr "关闭以按顺序为每个显示器分配静态壁纸。"
 
 msgid "Same Image on All Monitors"
-msgstr "所有显示器使用同一图片"
+msgstr "所有显示器使用相同图像"
 
 msgid "Apply one background to all displays. Requires a multi-monitor setup."
-msgstr "将一个背景应用于所有显示器。需要多显示器设置。"
+msgstr "将一个背景应用到所有显示器。需要多显示器设置。"
 
 msgid "Change Interval (Minutes)"
-msgstr "更改间隔 (分钟)"
+msgstr "更换间隔 (分钟)"
 
 msgid "Frequency of background cycling."
 msgstr "背景循环的频率。"
@@ -55,19 +55,19 @@ msgid "Wallpaper Folder"
 msgstr "壁纸文件夹"
 
 msgid "Select a directory..."
-msgstr "选择目录..."
+msgstr "选择一个目录..."
 
 msgid "Select Wallpaper Source Folder"
-msgstr "选择壁纸源文件夹"
+msgstr "选择壁纸来源文件夹"
 
 msgid "Per-Monitor Configuration"
-msgstr "每台显示器配置"
+msgstr "每个显示器配置"
 
 msgid "Assign individual scaling strategies and static images to connected displays."
-msgstr "为连接的显示器分配单独的缩放策略和静态图片。"
+msgstr "为连接的显示器分配单独的缩放策略和静态图像。"
 
 msgid "Unknown Display"
-msgstr "未知显示器"
+msgstr "未知的显示器"
 
 msgid "Display %d"
 msgstr "显示器 %d"
@@ -76,13 +76,13 @@ msgid "Scaling Strategy"
 msgstr "缩放策略"
 
 msgid "Specific Static Image"
-msgstr "特定静态图片"
+msgstr "特定的静态图像"
 
 msgid "Default (Alphabetical from folder)"
-msgstr "默认（文件夹中的字母顺序）"
+msgstr "默认 (文件夹内按字母顺序)"
 
 msgid "Select Static Image for %s"
-msgstr "为 %s 选择静态图片"
+msgstr "为 %s 选择静态图像"
 
 msgid "About"
 msgstr "关于"
@@ -94,7 +94,7 @@ msgid "Wallshuffle"
 msgstr "Wallshuffle"
 
 msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
-msgstr "使用高级渲染策略设置动态的单显示器背景。"
+msgstr "使用高级渲染策略设置动态的每个显示器背景。"
 
 msgid "Version"
 msgstr "版本"
@@ -105,11 +105,11 @@ msgstr "本地 / 开发"
 msgid "Author"
 msgstr "作者"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "请我喝杯咖啡 💙☕"
+msgid "Buy me a coffee"
+msgstr "请我喝杯咖啡"
 
-msgid "Report a Bug 🪲"
-msgstr "报告错误 🪲"
+msgid "Report a Bug"
+msgstr "报告错误"
 
 msgid "Request a Feature"
 msgstr "请求新功能"
@@ -131,3 +131,87 @@ msgstr "平铺"
 
 msgid "Span"
 msgstr "跨越"
+
+msgid "Make Every Workspace Your Own"
+msgstr "打造专属您的工作区"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "即便在单显示器设置下，也能为每个工作区使用不同的壁纸和渲染风格。请从“工作区”选项卡启用此功能。"
+
+msgid "Workspaces"
+msgstr "工作区"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "每个工作区的视觉标识"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "使用壁纸让工作区一目了然，更易于导航。"
+
+msgid "Works with Any Monitor Setup"
+msgstr "适用于任何显示器设置"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, whether you use one monitor or several."
+msgstr "无论您使用一台还是多台显示器，都可以为每个工作区指定其专属壁纸和缩放策略。"
+
+msgid "Override Only What Should Be Different"
+msgstr "仅覆盖需要变更的设置"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "每个工作区都从主选项卡的设置开始。仅在需要时选择不同的图像或渲染模式。"
+
+msgid "Workspace Specificity"
+msgstr "工作区独立设置"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "开启工作区感知背景，然后选择要显示多少个工作区配置。"
+
+msgid "Enable Workspace Specificity"
+msgstr "启用工作区独立设置"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "禁用时，Wallshuffle 将继续使用主显示器配置。"
+
+msgid "Brief Dark Transition When Switching"
+msgstr "切换时短暂的黑色过渡"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "由于 GNOME 应用工作区背景的方式，加载下一个背景时桌面可能会短暂变黑。仅当启用“工作区独立设置”时才会发生。"
+
+msgid "Workspace Configuration Slots"
+msgstr "工作区配置槽数量"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "请匹配您平时使用的工作区数量。使用动态工作区时，请添加额外的配置槽。"
+
+msgid "Per-Workspace Overrides"
+msgstr "每个工作区的覆盖设置"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "展开下方的工作区以覆盖每个显示器继承的缩放策略或静态图像。"
+
+msgid "Use Monitor Default"
+msgstr "使用显示器默认值"
+
+msgid "Workspace %d"
+msgstr "工作区 %d"
+
+msgid "1 connected display"
+msgstr "1 个已连接的显示器"
+
+msgid "%d connected displays"
+msgstr "%d 个已连接的显示器"
+
+msgid "%s Scaling Strategy"
+msgstr "%s 缩放策略"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   显示器默认: %s"
+
+msgid "%s Specific Static Image"
+msgstr "%s 特定的静态图像"
+
+msgid "Monitor Default: %s"
+msgstr "显示器默认: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "为工作区 %d, %s 选择静态图像"

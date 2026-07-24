@@ -84,8 +84,10 @@ cp \
     prefs.js \
     sources.js \
     rendering.js \
+    workspace.js \
     randomization.js \
     prefs_about.js \
+    prefs_workspaces.js \
     wallshuffle.svg \
     "$BUILD_DIR/"
 
@@ -100,8 +102,10 @@ if command -v gnome-extensions &> /dev/null; then
     PACK_ARGS=(
         "--extra-source=sources.js"
         "--extra-source=rendering.js"
+        "--extra-source=workspace.js"
         "--extra-source=randomization.js"
         "--extra-source=prefs_about.js"
+        "--extra-source=prefs_workspaces.js"        
         "--extra-source=wallshuffle.svg"
         "--extra-source=locale"
         "--extra-source=schemas"
@@ -147,7 +151,9 @@ cp "$BUILD_DIR/prefs.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/sources.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/rendering.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/randomization.js" "$EXTENSION_DIR/"
+cp "$BUILD_DIR/workspace.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/prefs_about.js" "$EXTENSION_DIR/"
+cp "$BUILD_DIR/prefs_workspaces.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/wallshuffle.svg" "$EXTENSION_DIR/"
 cp -r "$BUILD_DIR/schemas" "$EXTENSION_DIR/"
 cp -r "$BUILD_DIR/locale" "$EXTENSION_DIR/"

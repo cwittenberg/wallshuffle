@@ -51,6 +51,9 @@ class FolderSourceStrategy extends SourceStrategy {
         if (this._settings.get_boolean('randomize')) {
             return this._randomizer.select(images, requiredCount);
         } else {
+            if (images.length === 0) return [];
+
+            const workspaceIndex = this._settings.workspaceIndex || 0;
             // Static Mode handling
             const sortedImages = images.sort((a, b) => a.localeCompare(b));
             let explicitImages = {};
@@ -69,7 +72,7 @@ class FolderSourceStrategy extends SourceStrategy {
                     finalImages.push(explicitPath);
                 } else {
                     // Fallback to the alphabetical list 
-                    finalImages.push(sortedImages[i % sortedImages.length]);
+                    finalImages.push(sortedImages[(workspaceIndex * requiredCount + i) % sortedImages.length]);
                 }
             }
             
@@ -94,6 +97,8 @@ class OnlineSourceStrategy extends SourceStrategy {
         GLib.mkdir_with_parents(cacheDir, 0o755);
 
         const randomize = this._settings.get_boolean('randomize');
+        const workspaceIndex = this._settings.workspaceIndex;
+        const workspaceOffset = workspaceIndex === undefined ? 0 : workspaceIndex * requiredCount;
 
         for (let i = 0; i < requiredCount; i++) {
             let url = '';
@@ -125,19 +130,23 @@ class OnlineSourceStrategy extends SourceStrategy {
             if (this._provider === 'loremflickr') {
                 url = randomize
                     ? `https://loremflickr.com/${reqW}/${reqH}/landscape,nature?random=${Math.random()}`
-                    : `https://loremflickr.com/${reqW}/${reqH}/landscape,nature?lock=${i}`;
+                    : `https://loremflickr.com/${reqW}/${reqH}/landscape,nature?lock=${workspaceOffset + i}`;
             } else if (this._provider === 'placedog') {
                 url = randomize
                     ? `https://placedog.net/${reqW}/${reqH}?random=${Math.random()}`
-                    : `https://placedog.net/${reqW}/${reqH}?id=${i + 1}`;
+                    : `https://placedog.net/${reqW}/${reqH}?id=${workspaceOffset + i + 1}`;
             } else if (this._provider === 'placebear') {
                 url = randomize
                     ? `https://placebear.com/${reqW}/${reqH}?random=${Math.random()}`
-                    : `https://placebear.com/${reqW}/${reqH}`;
+                    : workspaceIndex === undefined
+                        ? `https://placebear.com/${reqW}/${reqH}`
+                        : `https://placebear.com/${reqW}/${reqH}?workspace=${workspaceIndex}&monitor=${i}`;
             } else { 
                 url = randomize 
                     ? `https://picsum.photos/${reqW}/${reqH}?random=${Math.random()}`
-                    : `https://picsum.photos/seed/wallshuffle_monitor_${i}/${reqW}/${reqH}`;
+                    : workspaceIndex === undefined
+                        ? `https://picsum.photos/seed/wallshuffle_monitor_${i}/${reqW}/${reqH}`
+                        : `https://picsum.photos/seed/wallshuffle_workspace_${workspaceIndex}_monitor_${i}/${reqW}/${reqH}`;
             }
             
             const msg = Soup.Message.new('GET', url);
@@ -159,7 +168,8 @@ class OnlineSourceStrategy extends SourceStrategy {
                     });
                 });
 
-                const outPath = GLib.build_filenamev([cacheDir, `download_${i}.jpg`]);
+                const outFilename = workspaceIndex === undefined ? `download_${i}.jpg` : `download_${workspaceIndex}_${i}.jpg`;
+                const outPath = GLib.build_filenamev([cacheDir, outFilename]);
                 const file = Gio.File.new_for_path(outPath);
                 
                 await new Promise((resolve, reject) => {

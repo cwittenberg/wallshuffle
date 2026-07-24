@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Language-Team: Russian\n"
 "Last-Translator: Wallshuffle Translation Team\n"
-"PO-Revision-Date: 2026-07-20 00:00+0200\n"
+"PO-Revision-Date: 2026-07-24 00:00+0200\n"
 "Project-Id-Version: Wallshuffle\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -16,22 +16,22 @@ msgid "Global Preferences"
 msgstr "Глобальные настройки"
 
 msgid "Configure behavior, timing, and sources."
-msgstr "Настройте поведение, тайминг и источники."
+msgstr "Настройте поведение, тайминги и источники."
 
 msgid "Randomize / Shuffle"
 msgstr "Случайно / Перемешать"
 
 msgid "Turn off to assign static wallpapers sequentially per monitor."
-msgstr "Отключите, чтобы последовательно назначать статические обои для каждого монитора."
+msgstr "Отключите, чтобы назначать статические обои на каждый монитор."
 
 msgid "Same Image on All Monitors"
 msgstr "Одинаковое изображение на всех мониторах"
 
 msgid "Apply one background to all displays. Requires a multi-monitor setup."
-msgstr "Применить один фон ко всем экранам. Требуется несколько мониторов."
+msgstr "Применить один фон ко всем дисплеям. Требуется несколько мониторов."
 
 msgid "Change Interval (Minutes)"
-msgstr "Интервал смены (минуты)"
+msgstr "Интервал смены (Минуты)"
 
 msgid "Frequency of background cycling."
 msgstr "Частота смены фона."
@@ -40,7 +40,7 @@ msgid "Wallpaper Source"
 msgstr "Источник обоев"
 
 msgid "Where to fetch backgrounds from."
-msgstr "Откуда брать обои."
+msgstr "Откуда брать фоны."
 
 msgid "Local Folder"
 msgstr "Локальная папка"
@@ -58,13 +58,13 @@ msgid "Select a directory..."
 msgstr "Выберите каталог..."
 
 msgid "Select Wallpaper Source Folder"
-msgstr "Выберите папку источника обоев"
+msgstr "Выберите папку с обоями"
 
 msgid "Per-Monitor Configuration"
-msgstr "Конфигурация по мониторам"
+msgstr "Настройка для каждого монитора"
 
 msgid "Assign individual scaling strategies and static images to connected displays."
-msgstr "Назначьте индивидуальные стратегии масштабирования и статические изображения."
+msgstr "Назначьте индивидуальные настройки масштабирования и изображения для дисплеев."
 
 msgid "Unknown Display"
 msgstr "Неизвестный дисплей"
@@ -76,13 +76,13 @@ msgid "Scaling Strategy"
 msgstr "Стратегия масштабирования"
 
 msgid "Specific Static Image"
-msgstr "Конкретное статическое изображение"
+msgstr "Конкретное статичное изображение"
 
 msgid "Default (Alphabetical from folder)"
 msgstr "По умолчанию (по алфавиту из папки)"
 
 msgid "Select Static Image for %s"
-msgstr "Выберите статическое изображение для %s"
+msgstr "Выберите статичное изображение для %s"
 
 msgid "About"
 msgstr "О программе"
@@ -94,7 +94,7 @@ msgid "Wallshuffle"
 msgstr "Wallshuffle"
 
 msgid "Set dynamic, per-monitor backgrounds using advanced rendering strategies."
-msgstr "Установите динамические фоны для каждого монитора."
+msgstr "Устанавливайте динамические фоны для каждого монитора."
 
 msgid "Version"
 msgstr "Версия"
@@ -105,29 +105,113 @@ msgstr "Локально / Разработка"
 msgid "Author"
 msgstr "Автор"
 
-msgid "Buy me a coffee 💙☕"
-msgstr "Купить мне кофе 💙☕"
+msgid "Buy me a coffee"
+msgstr "Купить мне кофе"
 
-msgid "Report a Bug 🪲"
-msgstr "Сообщить об ошибке 🪲"
+msgid "Report a Bug"
+msgstr "Сообщить об ошибке"
 
 msgid "Request a Feature"
-msgstr "Запросить функцию"
+msgstr "Предложить функцию"
 
 msgid "Zoom"
-msgstr "Масштаб"
+msgstr "Увеличение"
 
 msgid "Fit"
-msgstr "Уместить"
+msgstr "Вписать"
 
 msgid "Centre"
 msgstr "По центру"
 
 msgid "Fill"
-msgstr "Заполнить"
+msgstr "Заполнение"
 
 msgid "Tile"
-msgstr "Плитка"
+msgstr "Мозаика"
 
 msgid "Span"
 msgstr "Растянуть"
+
+msgid "Make Every Workspace Your Own"
+msgstr "Сделайте каждое рабочее место своим"
+
+msgid "Use different wallpapers and rendering styles per workspace even on a single-monitor setup. Enable Workspace Specificity from the Workspaces tab."
+msgstr "Используйте разные обои на каждом рабочем месте. Включите эту опцию на вкладке 'Рабочие места'."
+
+msgid "Workspaces"
+msgstr "Рабочие места"
+
+msgid "A Visual Identity for Every Workspace"
+msgstr "Визуальная идентичность для каждого рабочего места"
+
+msgid "Use wallpapers to make workspaces instantly recognizable and easier to navigate."
+msgstr "Используйте обои, чтобы рабочие места были легко узнаваемыми."
+
+msgid "Works with Any Monitor Setup"
+msgstr "Работает с любой конфигурацией мониторов"
+
+msgid "Give every workspace its own wallpaper and scaling strategy, whether you use one monitor or several."
+msgstr "Дайте каждому рабочему месту свои обои, независимо от количества мониторов."
+
+msgid "Override Only What Should Be Different"
+msgstr "Переопределяйте только то, что должно отличаться"
+
+msgid "Every workspace starts with the settings from the main tab. Choose a different image or rendering mode only where needed."
+msgstr "Каждое рабочее место использует главные настройки. Выбирайте другое изображение только там, где это нужно."
+
+msgid "Workspace Specificity"
+msgstr "Специфичность рабочих мест"
+
+msgid "Turn on workspace-aware backgrounds, then choose how many workspace configurations to show."
+msgstr "Включите фоны для рабочих мест и выберите количество конфигураций."
+
+msgid "Enable Workspace Specificity"
+msgstr "Включить специфичность рабочих мест"
+
+msgid "When disabled, Wallshuffle continues using the main per-monitor configuration."
+msgstr "Когда отключено, используются основные настройки для мониторов."
+
+msgid "Brief Dark Transition When Switching"
+msgstr "Краткое потемнение при переключении"
+
+msgid "Due to how GNOME applies workspace backgrounds, the desktop may appear dark very briefly while the next background loads. This only occurs when Workspace Specificity is enabled."
+msgstr "Рабочий стол может на мгновение потемнеть при загрузке следующего фона."
+
+msgid "Workspace Configuration Slots"
+msgstr "Слоты конфигурации рабочих мест"
+
+msgid "Match the number of workspaces you normally use. Add extra slots when using dynamic workspaces."
+msgstr "Укажите количество рабочих мест, которые вы обычно используете."
+
+msgid "Per-Workspace Overrides"
+msgstr "Переопределения для рабочих мест"
+
+msgid "Open a workspace below to override its inherited scaling strategy or static image for each monitor."
+msgstr "Откройте рабочее место ниже, чтобы переопределить настройки мониторов."
+
+msgid "Use Monitor Default"
+msgstr "Использовать настройки монитора"
+
+msgid "Workspace %d"
+msgstr "Рабочее место %d"
+
+msgid "1 connected display"
+msgstr "1 подключенный дисплей"
+
+msgid "%d connected displays"
+msgstr "%d подключенных дисплеев"
+
+msgid "%s Scaling Strategy"
+msgstr "Стратегия масштабирования %s"
+
+msgid "%s   Monitor default: %s"
+msgstr "%s   По умолчанию для монитора: %s"
+
+msgid "%s Specific Static Image"
+msgstr "Особое статичное изображение для %s"
+
+msgid "Monitor Default: %s"
+msgstr "По умолчанию для монитора: %s"
+
+msgid "Select Static Image for Workspace %d, %s"
+msgstr "Выберите изображение для рабочего места %d, %s"

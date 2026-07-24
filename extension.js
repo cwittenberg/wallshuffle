@@ -7,6 +7,7 @@ import GdkPixbuf from 'gi://GdkPixbuf';
 import { SourceFactory } from './sources.js';
 import { RenderStrategyFactory } from './rendering.js';
 import { Randomizer } from './randomization.js';
+import { WorkspaceStrategyFactory } from './workspace.js';
 
 export default class WallshuffleExtension extends Extension {
     enable() {
@@ -15,11 +16,11 @@ export default class WallshuffleExtension extends Extension {
         this._queuedUpdate = false;
         this._queuedReloadImages = false;
         this._updateCancellable = null;
-        this._currentImages = [];
+        this._currentImages = new Map();
+        this._randomizers = new Map();
         
         // Tie state explicitly to the extension lifecycle
         this._cancellable = new Gio.Cancellable();
-        this._randomizer = new Randomizer();
         this._httpSession = new Soup.Session();
         this._bgSettings = new Gio.Settings({ schema_id: 'org.gnome.desktop.background' });
         this._settings = this.getSettings();
@@ -29,18 +30,28 @@ export default class WallshuffleExtension extends Extension {
                 this._reschedule();
             }
 
-            const reloadImages = !['interval', 'same-image-all-monitors', 'monitor-settings'].includes(key);
-            const invalidateImages = ['randomize', 'source-type', 'folder', 'monitor-images'].includes(key);
+            if (key === 'workspace-count') return;
+
+            const reloadImages = !['interval', 'monitor-settings', 'workspace-monitor-settings'].includes(key);
+            const invalidateImages = ['randomize', 'same-image-all-monitors', 'source-type', 'folder', 'monitor-images', 'workspace-specific', 'workspace-monitor-images'].includes(key);
 
             this._requestBackgroundUpdate(reloadImages, invalidateImages);
         }, this);
 
         // GSettings only emits "changed" for keys read after the handler was connected.
-        for (const key of ['randomize', 'same-image-all-monitors', 'interval', 'source-type', 'folder', 'monitor-settings', 'monitor-images']) {
+        for (const key of ['randomize', 'same-image-all-monitors', 'interval', 'source-type', 'folder', 'monitor-settings', 'monitor-images', 'workspace-specific', 'workspace-count', 'workspace-monitor-settings', 'workspace-monitor-images']) {
             this._settings.get_value(key);
         }
 
-        Main.layoutManager.connectObject('monitors-changed', () => this._requestBackgroundUpdate(), this);
+        Main.layoutManager.connectObject('monitors-changed', () => {
+            this._currentImages.clear();
+            this._requestBackgroundUpdate();
+        }, this);
+        global.workspace_manager.connectObject('active-workspace-changed', () => {
+            if (this._settings.get_boolean('workspace-specific')) {
+                this._requestBackgroundUpdate(false);
+            }
+        }, this);
 
         this._requestBackgroundUpdate();
         this._reschedule();
@@ -68,12 +79,16 @@ export default class WallshuffleExtension extends Extension {
         }
 
         // 4. Destroy the randomizer state
-        if (this._randomizer) {
-            this._randomizer.clear();
-            this._randomizer = null;
+        if (this._randomizers) {
+            for (const randomizer of this._randomizers.values()) {
+                randomizer.clear();
+            }
+            this._randomizers.clear();
         }
 
-        this._currentImages = [];
+        if (this._currentImages) {
+            this._currentImages.clear();
+        }
 
         // 5. Clean up settings hooks using disconnectObject
         if (this._settings) {
@@ -82,6 +97,7 @@ export default class WallshuffleExtension extends Extension {
         }
         
         Main.layoutManager.disconnectObject(this);
+        global.workspace_manager.disconnectObject(this);
         
         this._bgSettings = null;
     }
@@ -105,6 +121,9 @@ export default class WallshuffleExtension extends Extension {
                 GLib.PRIORITY_DEFAULT,
                 intervalMins * 60,
                 () => {
+                    if (this._settings.get_boolean('workspace-specific')) {
+                        this._currentImages.clear();
+                    }
                     this._requestBackgroundUpdate();
                     return GLib.SOURCE_CONTINUE;
                 }
@@ -116,8 +135,11 @@ export default class WallshuffleExtension extends Extension {
         if (!this._settings || !this._cancellable || this._cancellable.is_cancelled()) return;
 
         if (invalidateImages) {
-            this._currentImages = [];
-            this._randomizer.clear();
+            this._currentImages.clear();
+            for (const randomizer of this._randomizers.values()) {
+                randomizer.clear();
+            }
+            this._randomizers.clear();
         }
 
         if (this._updateCancellable) {
@@ -174,16 +196,27 @@ export default class WallshuffleExtension extends Extension {
 
             if (globalBox.w <= 0 || globalBox.h <= 0) return;
 
-            const useSameImage = this._settings.get_boolean('same-image-all-monitors');
+            const workspaceIndex = global.workspace_manager.get_active_workspace_index();
+            const workspaceStrategy = WorkspaceStrategyFactory.getStrategy(this._settings, workspaceIndex);
+            const effectiveSettings = workspaceStrategy.getSettings();
+            const cacheKey = workspaceStrategy.cacheKey;
+            const cachedImages = this._currentImages.get(cacheKey) || [];
+            let randomizer = this._randomizers.get(cacheKey);
+            if (!randomizer) {
+                randomizer = new Randomizer();
+                this._randomizers.set(cacheKey, randomizer);
+            }
+
+            const useSameImage = effectiveSettings.get_boolean('same-image-all-monitors');
             const requiredCount = (useSameImage && nMonitors > 1) ? 1 : nMonitors;
             let images = [];
             
-            if (!reloadImages && this._currentImages.length > 0) {
-                images = useSameImage ? [this._currentImages[0]] : [...this._currentImages];
+            if (!reloadImages && cachedImages.length > 0) {
+                images = useSameImage ? [cachedImages[0]] : [...cachedImages];
             } else {
                 const sourceStrategy = SourceFactory.getStrategy(
-                    this._settings, 
-                    this._randomizer, 
+                    effectiveSettings, 
+                    randomizer, 
                     this._httpSession, 
                     updateCancellable
                 );
@@ -193,7 +226,7 @@ export default class WallshuffleExtension extends Extension {
                 images = await sourceStrategy.getImages(requiredCount, monitors, useSameImage, globalBox);
                 
                 if (images.length > 0) {
-                    this._currentImages = [...images];
+                    this._currentImages.set(cacheKey, [...images]);
                 }
             }
 
@@ -204,7 +237,7 @@ export default class WallshuffleExtension extends Extension {
 
             let perMonitorSettings = {};
             try {
-                perMonitorSettings = JSON.parse(this._settings.get_string('monitor-settings'));
+                perMonitorSettings = JSON.parse(effectiveSettings.get_string('monitor-settings'));
             } catch (e) {
                 perMonitorSettings = {};
             }
